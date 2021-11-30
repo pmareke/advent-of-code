@@ -1,7 +1,7 @@
 {
-  "name": "adventofcode",
+  "name": "advent-of-code-2021",
   "version": "1.0.0",
-  "description": "",
+  "description": "My solutions for the Advent of Code 2021 in Typescript",
   "main": "index.ts",
   "scripts": {
     "test": "jest",
@@ -10,8 +10,12 @@
     "prepare": "husky install",
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "typescript",
+    "advent of code",
+    "test"
+  ],
+  "author": "Pedro Lopez Mareque",
   "license": "ISC",
   "dependencies": {
     "typescript": "^4.5.2"
