@@ -1,9 +1,7 @@
-import { readAllLines, readAllLinesAsNumbers } from '../../utils';
-
-export function solvePart1() {
-  return readAllLines('01');
+export function solvePart1(input: string[]): string[] {
+  return input;
 }
 
-export function solvePart2() {
-  return readAllLinesAsNumbers('01');
+export function solvePart2(input: number[]): number[] {
+  return input;
 }
