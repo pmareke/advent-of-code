@@ -7,7 +7,8 @@
     "test": "jest",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
