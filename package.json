@@ -4,7 +4,7 @@
   "description": "My solutions for the Advent of Code 2021 in Typescript",
   "main": "index.ts",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --write .",
     "prepare": "husky install",

@@ -1,18 +1,47 @@
 import { solvePart1, solvePart2 } from '../../src/day_01';
-import { readAllLines, readAllLinesAsNumbers } from '../../utils';
+import { readAllLinesAsNumbers } from '../../utils';
+import { TestCase } from '../../utils/types';
 
 describe('Day One', () => {
-  it('Solution Part One', () => {
-    const actual = solvePart1(readAllLines('01'));
-    const expected = '1';
+  describe('Part One', () => {
+    const testCases: TestCase[] = [
+      {
+        name: 'example',
+        input: [199, 200, 208, 210, 200, 207, 240, 269, 260, 263],
+        expected: 7,
+      },
+      {
+        name: 'real input',
+        input: readAllLinesAsNumbers('01'),
+        expected: 1722,
+      },
+    ];
 
-    expect(actual[0]).toEqual(expected);
+    testCases.forEach(({ name, input, expected }) => {
+      it(`Solution: ${name}`, () => {
+        expect(solvePart1(input as number[])).toBe(expected);
+      });
+    });
   });
 
-  it('Solution Part Two', () => {
-    const actual = solvePart2(readAllLinesAsNumbers('01'));
-    const expected = 1;
+  describe('Part Two', () => {
+    const testCases: TestCase[] = [
+      {
+        name: 'example',
+        input: [199, 200, 208, 210, 200, 207, 240, 269, 260, 263],
+        expected: 5,
+      },
+      {
+        name: 'real input',
+        input: readAllLinesAsNumbers('01'),
+        expected: 1748,
+      },
+    ];
 
-    expect(actual[0]).toEqual(expected);
+    testCases.forEach(({ name, input, expected }) => {
+      it(`Solution: ${name}`, () => {
+        expect(solvePart2(input as number[])).toBe(expected);
+      });
+    });
   });
 });
