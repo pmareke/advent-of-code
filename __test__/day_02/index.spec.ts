@@ -1,21 +1,20 @@
-import { solvePart1, solvePart2 } from '../../src/day_01';
-import { readAllLinesAsNumbers } from '../../utils';
+import { solvePart1, solvePart2 } from '../../src/day_02';
 import { TestCase } from '../../utils/types';
 
-describe('Day One', () => {
-  const example = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
-  const real = readAllLinesAsNumbers('01');
+describe('Day Two', () => {
+  const example: number[] = [];
+  const real: number[] = [];
   describe('Part One', () => {
     const testCases: TestCase<number>[] = [
       {
         name: 'example',
         input: example,
-        expected: 7,
+        expected: 0,
       },
       {
         name: 'real',
         input: real,
-        expected: 1722,
+        expected: 0,
       },
     ];
 
@@ -31,12 +30,12 @@ describe('Day One', () => {
       {
         name: 'example',
         input: example,
-        expected: 5,
+        expected: 0,
       },
       {
         name: 'real',
         input: real,
-        expected: 1748,
+        expected: 0,
       },
     ];
 
