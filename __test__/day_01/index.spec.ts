@@ -4,7 +4,7 @@ import { TestCase } from '../../utils/types';
 
 describe('Day One', () => {
   describe('Part One', () => {
-    const testCases: TestCase[] = [
+    const testCases: TestCase<number>[] = [
       {
         name: 'example',
         input: [199, 200, 208, 210, 200, 207, 240, 269, 260, 263],
@@ -19,13 +19,13 @@ describe('Day One', () => {
 
     testCases.forEach(({ name, input, expected }) => {
       it(`Solution: ${name}`, () => {
-        expect(solvePart1(input as number[])).toBe(expected);
+        expect(solvePart1(input)).toBe(expected);
       });
     });
   });
 
   describe('Part Two', () => {
-    const testCases: TestCase[] = [
+    const testCases: TestCase<number>[] = [
       {
         name: 'example',
         input: [199, 200, 208, 210, 200, 207, 240, 269, 260, 263],
@@ -40,7 +40,7 @@ describe('Day One', () => {
 
     testCases.forEach(({ name, input, expected }) => {
       it(`Solution: ${name}`, () => {
-        expect(solvePart2(input as number[])).toBe(expected);
+        expect(solvePart2(input)).toBe(expected);
       });
     });
   });

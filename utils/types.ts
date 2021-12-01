@@ -1,5 +1,5 @@
-export type TestCase = {
+export type TestCase<Type extends string | number> = {
   name: string;
-  input: string[] | number[];
+  input: Type[];
   expected: number;
 };
