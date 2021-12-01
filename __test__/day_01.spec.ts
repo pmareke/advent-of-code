@@ -1,25 +1,26 @@
-import { solvePart1, solvePart2 } from '../../src/day_02';
-import { TestCase } from '../../utils/types';
+import { solvePart1, solvePart2 } from '../src/day_01';
+import { readAllLinesAsNumbers } from '../utils';
+import { TestCase } from '../utils/types';
 
-describe('Day Two', () => {
-  const example: number[] = [];
-  const real: number[] = [];
+describe('Day One', () => {
+  const example = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
+  const real = readAllLinesAsNumbers('01');
   describe('Part One', () => {
     const testCases: TestCase<number>[] = [
       {
         name: 'example',
         input: example,
-        expected: 0,
+        expected: 7,
       },
       {
         name: 'real',
         input: real,
-        expected: 0,
+        expected: 1722,
       },
     ];
 
     testCases.forEach(({ name, input, expected }) => {
-      it(`Solution: ${name}`, () => {
+      it(`${name}`, () => {
         expect(solvePart1(input)).toBe(expected);
       });
     });
@@ -30,17 +31,17 @@ describe('Day Two', () => {
       {
         name: 'example',
         input: example,
-        expected: 0,
+        expected: 5,
       },
       {
         name: 'real',
         input: real,
-        expected: 0,
+        expected: 1748,
       },
     ];
 
     testCases.forEach(({ name, input, expected }) => {
-      it(`Solution: ${name}`, () => {
+      it(`${name}`, () => {
         expect(solvePart2(input)).toBe(expected);
       });
     });
