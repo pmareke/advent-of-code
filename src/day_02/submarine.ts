@@ -1,4 +1,4 @@
-import { Command, Instruction as Instructions, Submarine } from './types';
+import { Command, Instructions, Submarine } from './types';
 import { parseCommands } from './util';
 
 abstract class BaseSubmarine implements Submarine {

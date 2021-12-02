@@ -1,6 +1,6 @@
 export type Direction = 'forward' | 'up' | 'down';
 
-export type Instruction = {
+export type Instructions = {
   [key in Direction]: (distance: number) => void;
 };
 
