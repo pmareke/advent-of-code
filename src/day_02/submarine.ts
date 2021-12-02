@@ -32,7 +32,7 @@ abstract class BaseSubmarine implements Submarine {
   }
 }
 
-export class OldSubmarine extends BaseSubmarine implements Submarine {
+export class OldSubmarine extends BaseSubmarine {
   forward(distance: number): void {
     this.horizontal += distance;
   }
@@ -44,7 +44,7 @@ export class OldSubmarine extends BaseSubmarine implements Submarine {
   }
 }
 
-export class NewSubmarine extends BaseSubmarine implements Submarine {
+export class NewSubmarine extends BaseSubmarine {
   private aim = 0;
 
   forward(distance: number): void {
