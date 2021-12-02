@@ -1,20 +1,28 @@
 import { solvePart1, solvePart2 } from '../src/day_02';
+import { readAllLines } from '../utils';
 import { TestCase } from '../utils/types';
 
 describe('Day Two', () => {
-  const example: number[] = [];
-  const real: number[] = [];
+  const example: string[] = [
+    'forward 5',
+    'down 5',
+    'forward 8',
+    'up 3',
+    'down 8',
+    'forward 2',
+  ];
+  const real: string[] = readAllLines('02');
   describe('Part One', () => {
-    const testCases: TestCase<number>[] = [
+    const testCases: TestCase<string>[] = [
       {
         name: 'example',
         input: example,
-        expected: 0,
+        expected: 150,
       },
       {
         name: 'real',
         input: real,
-        expected: 0,
+        expected: 1815044,
       },
     ];
 
@@ -26,16 +34,16 @@ describe('Day Two', () => {
   });
 
   describe('Part Two', () => {
-    const testCases: TestCase<number>[] = [
+    const testCases: TestCase<string>[] = [
       {
         name: 'example',
         input: example,
-        expected: 0,
+        expected: 900,
       },
       {
         name: 'real',
         input: real,
-        expected: 0,
+        expected: 1739283308,
       },
     ];
 
