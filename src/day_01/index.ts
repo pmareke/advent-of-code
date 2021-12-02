@@ -9,5 +9,8 @@ export function solvePart2(input: number[]): number {
 function findIncreasesWithStep(input: number[], step: number): number {
   return input
     .slice(step)
-    .reduce((acc, m, index) => (m > input[index] ? ++acc : acc), 0);
+    .reduce(
+      (acc, measurement, index) => (measurement > input[index] ? ++acc : acc),
+      0,
+    );
 }

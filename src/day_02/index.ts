@@ -6,24 +6,24 @@ type Output = {
 
 type Command = {
   direction: Direction;
-  units: number;
+  distance: number;
 };
 
 type Direction = 'forward' | 'up' | 'down';
 
 export function solvePart1(input: string[], partTwo = false): number {
   const { horizontal, deep } = parseCommand(input).reduce(
-    (acc, { direction, units }) => {
+    (acc, { direction, distance }) => {
       if (direction === 'forward') {
-        acc.horizontal += units;
-        if (partTwo) acc.deep += units * acc.aim;
+        acc.horizontal += distance;
+        if (partTwo) acc.deep += distance * acc.aim;
       }
       if (partTwo) {
-        if (direction === 'up') acc.aim -= units;
-        if (direction === 'down') acc.aim += units;
+        if (direction === 'up') acc.aim -= distance;
+        if (direction === 'down') acc.aim += distance;
       } else {
-        if (direction === 'up') acc.deep -= units;
-        if (direction === 'down') acc.deep += units;
+        if (direction === 'up') acc.deep -= distance;
+        if (direction === 'down') acc.deep += distance;
       }
       return acc;
     },
@@ -44,7 +44,7 @@ function parseCommand(input: string[]): Command[] {
       (line) =>
         ({
           direction: line[0],
-          units: Number(line[1]),
+          distance: Number(line[1]),
         } as Command),
     );
 }
