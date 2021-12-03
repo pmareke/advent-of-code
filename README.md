@@ -81,10 +81,16 @@ abstract class BaseSubmarine implements Submarine {
 }
 
 export class OldSubmarine extends BaseSubmarine {
+  forward(distance: number): void {...}
+  up(distance: number): void {...}
+  down(distance: number): void {...}
   ...
 }
 
 export class NewSubmarine extends BaseSubmarine {
+  forward(distance: number): void {...}
+  up(distance: number): void {...}
+  down(distance: number): void {...}
   ...
 }
 ```
