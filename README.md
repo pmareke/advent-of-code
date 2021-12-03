@@ -24,7 +24,7 @@ npm run test
 
 ### Day 1
 
-I solved this first puzzle slicing the input array, for **part one** with a slice of **1** and for **part two** with a slice of 3, and comparing the values of the arrays.
+I solved this first puzzle slicing the input array, for **part one** with a slice of **1** and for **part two** with a slice of **3**, and comparing the values of the arrays.
 
 ```javascript
 function findIncreasesWithStep(input: number[], step: number): number {
@@ -36,6 +36,13 @@ function findIncreasesWithStep(input: number[], step: number): number {
   );
 }
 ```
+
+```
+[ 1, 2, 3 , 4 ] => Slice of one => [ 2, 3, 4 ] => [1 > 2], [2 > 3], [3 > 4]
+[ 1, 2, 3 , 4, 5, 6, 7 ] => Slice of three => [ 4, 5, 6, 7 ] => [1 > 4], [2 > 5], [3 > 6], [4 > 7]
+```
+
+This solution is valid as it's the same `1 + 2 + 3 > 2 + 3 + 4` as `1 > 4` because `2` and `3 are in both sides of the operation.
 
 ### Day 2
 
