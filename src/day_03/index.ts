@@ -12,16 +12,19 @@ export function solvePart2(input: string[]): number {
 }
 
 function mostCommon(input: string[]): string {
-  const sequence = Array.from({ length: input[0].length })
-    .map((_, i) => i)
-    .fill(0);
-  input.forEach((n) => {
-    n.split('').forEach((x, i) => (sequence[i] += Number(x)));
+  const commonNumbers = Array.from<number>({ length: input[0].length }).fill(0);
+
+  input.forEach((group) => {
+    group
+      .split('')
+      .forEach((num, index) => (commonNumbers[index] += Number(num)));
   });
 
-  return sequence
-    .map((x) => (input.length - x <= input.length / 2 ? '1' : '0'))
-    .join('');
+  const length = input.length;
+  return commonNumbers.reduce(
+    (acc, times) => (acc += length - times > length / 2 ? '0' : '1'),
+    '',
+  );
 }
 
 function reccursion(
