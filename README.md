@@ -8,3 +8,5 @@ Solutions to AoC 2021:
   - [Solution](./src/day_02)
 - [Day 3](https://adventofcode.com/2021/day/3)
   - [Solution](./src/day_03)
+- [Day 4](https://adventofcode.com/2021/day/4)
+  - [Solution](./src/day_04)
