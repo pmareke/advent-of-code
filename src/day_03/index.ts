@@ -1,7 +1,39 @@
 export function solvePart1(input: string[]): number {
-  return 0;
+  const common = mostCommon(input);
+  const gamma = parseInt(common, 2);
+  const epsilon = Math.pow(2, input[0].length) - 1 - gamma;
+  return gamma * epsilon;
 }
 
 export function solvePart2(input: string[]): number {
-  return 0;
+  const oxygen = reccursion(input, 0, (x, y) => x === y);
+  const CO2 = reccursion(input, 0, (x, y) => x !== y);
+  return parseInt(oxygen, 2) * parseInt(CO2, 2);
+}
+
+function mostCommon(input: string[]): string {
+  const sequence = Array.from({ length: input[0].length })
+    .map((_, i) => i)
+    .fill(0);
+  input.forEach((n) => {
+    n.split('').forEach((x, i) => (sequence[i] += Number(x)));
+  });
+
+  return sequence
+    .map((x) => (input.length - x <= input.length / 2 ? '1' : '0'))
+    .join('');
+}
+
+function reccursion(
+  input: string[],
+  start: number,
+  callback: (x: string, y: string) => boolean,
+): string {
+  if (input.length === 1) return input[0];
+  const common = mostCommon(input)[start];
+  return reccursion(
+    input.filter((x) => callback(x[start], common)),
+    ++start,
+    callback,
+  );
 }
