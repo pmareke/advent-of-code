@@ -12,19 +12,20 @@ export function solvePart2(input: string[]): number {
 }
 
 function mostCommon(input: string[]): string {
-  const commonNumbers = Array.from<number>({ length: input[0].length }).fill(0);
-
-  input.forEach((group) => {
-    group
-      .split('')
-      .forEach((num, index) => (commonNumbers[index] += Number(num)));
-  });
-
   const length = input.length;
-  return commonNumbers.reduce(
-    (acc, times) => (acc += length - times > length / 2 ? '0' : '1'),
-    '',
-  );
+  const zeros = Array.from<number>({ length: input[0].length }).fill(0);
+  return input
+    .reduce((acc, line) => {
+      line.split('').reduce((acc, num, index) => {
+        acc[index] += Number(num);
+        return acc;
+      }, acc);
+      return acc;
+    }, zeros)
+    .reduce(
+      (acc, times) => (acc += length - times > length / 2 ? '0' : '1'),
+      '',
+    );
 }
 
 function reccursion(
