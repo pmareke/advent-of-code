@@ -14,18 +14,19 @@ export function solvePart2(input: string[]): number {
 function mostCommon(input: string[]): string {
   const length = input.length;
   const zeros = Array.from<number>({ length: input[0].length }).fill(0);
-  return input
-    .reduce((acc, line) => {
-      line.split('').reduce((acc, num, index) => {
-        acc[index] += Number(num);
-        return acc;
-      }, acc);
+
+  const ocurrencesByPosition = input.reduce((acc, line) => {
+    line.split('').reduce((acc, num, index) => {
+      acc[index] += Number(num);
       return acc;
-    }, zeros)
-    .reduce(
-      (acc, times) => (acc += length - times > length / 2 ? '0' : '1'),
-      '',
-    );
+    }, acc);
+    return acc;
+  }, zeros); // [ 1111, 1110, 1100, 1000 ] => [4, 3, 2, 1]
+
+  return ocurrencesByPosition.reduce(
+    (acc, times) => (acc += length - times > length / 2 ? '0' : '1'),
+    '',
+  ); // [4, 3, 2, 1] => [1, 1, 1, 0]
 }
 
 function reccursion(
