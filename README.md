@@ -125,7 +125,7 @@ function mostCommon(input: string[]): string {
 
 The main idea behind this puzzle was to build an entity called `Bingo` which can plays and keep an internal state about the game.
 
-This class implments a basic interface called `Board`:
+This class implements a basic interface called `Board`:
 
 ```javascript
 export interface Board {
