@@ -32,8 +32,8 @@ function findIncreasesWithStep(input: number[], step: number): number {
     .slice(step)
     .reduce(
       (acc, measurement, index) => (measurement > input[index] ? ++acc : acc),
-    0,
-  );
+      0,
+    );
 }
 ```
 
@@ -104,7 +104,7 @@ In both parts we need to know wich are the most common number by position, **1**
 ```javascript
 function mostCommon(input: string[]): string {
   const length = input.length;
-  const zeros = Array.from<number>({ length: input[0].length }).fill(0);
+  const zeros = Array.from < number > { length: input[0].length }.fill(0);
 
   const ocurrencesByPosition = input.reduce((acc, line) => {
     line.split('').reduce((acc, num, index) => {
@@ -121,3 +121,20 @@ function mostCommon(input: string[]): string {
 }
 ```
 
+### Day 4
+
+The main idea behind this puzzle was to build an entity called `Bingo` which can plays and keep an internal state about the game.
+
+This class implments a basic interface called `Board`:
+
+```javascript
+export interface Board {
+  isBingo(): boolean;
+  play(n: number): void;
+  get result(): number;
+}
+```
+
+In the **part one** after parsing the input getting the numbers and the boards to play is just play over and over until a winner appears.
+
+In the **part two** is the same approach but in this case we need to find which boards wins the last.
