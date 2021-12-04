@@ -1,20 +1,27 @@
-import { Board } from './types';
+import { Bingo } from './types';
 
-export class Bingo implements Board {
+export class BaseBingo implements Bingo {
   private last = 0;
   private rows: number[][] = [];
   private columns: number[][] = [];
 
   constructor(numbers: string[]) {
-    this.rows = numbers.reduce((acc, line, index) => {
+    this.rows = this.getRows(numbers);
+    this.columns = this.getColumns();
+  }
+
+  private getRows(numbers: string[]): number[][] {
+    return numbers.reduce((acc, line, index) => {
       acc[index] = line
         .split(' ')
         .filter((l) => l !== '')
         .map(Number);
       return acc;
     }, [] as number[][]);
+  }
 
-    this.columns = this.rows.reduce<number[][]>((acc, _, index) => {
+  private getColumns(): number[][] {
+    return this.rows.reduce<number[][]>((acc, _, index) => {
       acc[index] = [];
       for (let j = 0; j < this.rows.length; j++) {
         acc[index].push(this.rows[j][index]);
@@ -25,32 +32,37 @@ export class Bingo implements Board {
 
   play(n: number): void {
     this.last = n;
-    for (let i = 0; i < this.rows.length; i++) {
-      this.rows[i] = this.rows[i].filter((x) => x !== n);
-    }
-
-    for (let i = 0; i < this.columns.length; i++) {
-      this.columns[i] = this.columns[i].filter((x) => x !== n);
-    }
+    this.rows.forEach((_, index) => {
+      this.rows[index] = this.rows[index].filter((x) => x !== n);
+      this.columns[index] = this.columns[index].filter((x) => x !== n);
+    });
   }
 
-  get result(): number {
-    return this.last * this.unseen();
+  get score(): number {
+    return this.last * this.unseenNumbersSum();
   }
 
-  private unseen(): number {
+  private unseenNumbersSum(): number {
     return this.rows.flatMap((x) => x).reduce((acc, x) => (acc += x), 0);
   }
 
   isBingo(): boolean {
-    return this.bingoInRows || this.bingoInColumns;
+    return this.isBingoInRows || this.isBingoInColumns;
   }
 
-  private get bingoInRows(): boolean {
+  private get isBingoInRows(): boolean {
     return this.rows.some((c) => c.length === 0);
   }
 
-  private get bingoInColumns(): boolean {
+  private get isBingoInColumns(): boolean {
     return this.columns.some((c) => c.length === 0);
+  }
+
+  get numberOfRows(): number {
+    return this.rows.length;
+  }
+
+  get numberOfColumns(): number {
+    return this.columns.length;
   }
 }

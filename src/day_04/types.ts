@@ -1,10 +1,12 @@
-export interface Board {
+export interface Bingo {
   isBingo(): boolean;
   play(n: number): void;
-  get result(): number;
+  get score(): number;
+  get numberOfRows(): number;
+  get numberOfColumns(): number;
 }
 
 export type Game = {
   numbers: number[];
-  boards: Board[];
+  boards: Bingo[];
 };

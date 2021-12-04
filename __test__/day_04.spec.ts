@@ -1,4 +1,5 @@
 import { solvePart1, solvePart2 } from '../src/day_04';
+import { parseInput } from '../src/day_04/utils';
 import { readFile } from '../utils';
 import { TestCase } from '../utils/types';
 
@@ -22,6 +23,7 @@ const example: string[] = [
   '18  8 23 26 20',
   '22 11 13  6  5',
   '2  0 12  3  7',
+  '',
 ];
 
 const real: string[] = readFile('04');
@@ -65,6 +67,20 @@ describe('Day Four', () => {
     testCases.forEach(({ name, input, expected }) => {
       it(`${name}`, () => {
         expect(solvePart2(input)).toBe(expected);
+      });
+    });
+  });
+
+  describe('Parser', () => {
+    const game = parseInput(example);
+    it('create a Bingo game', () => {
+      expect(game.boards).toHaveLength(3);
+      expect(game.numbers).toHaveLength(27);
+    });
+    game.boards.forEach((board) => {
+      it('valid boards', () => {
+        expect(board.numberOfColumns).toBe(5);
+        expect(board.numberOfRows).toBe(5);
       });
     });
   });
