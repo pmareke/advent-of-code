@@ -1,5 +1,9 @@
 import { readFileSync } from 'fs';
 
+export function readFile(day: string): string[] {
+  return readFileSync(`./inputs/day${day}.in`).toString().split('\n');
+}
+
 export function readAllLines(day: string): string[] {
   return readFileSync(`./inputs/day${day}.in`)
     .toString()
