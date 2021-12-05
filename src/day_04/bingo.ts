@@ -43,7 +43,7 @@ export class BaseBingo implements Bingo {
   }
 
   private unseenNumbersSum(): number {
-    return this.rows.flatMap((x) => x).reduce((acc, x) => (acc += x), 0);
+    return this.rows.flat().reduce((acc, x) => (acc += x), 0);
   }
 
   isBingo(): boolean {
