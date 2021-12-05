@@ -1,6 +1,6 @@
-import { solvePart1, solvePart2 } from '../src/day_01';
-import { readAllLinesAsNumbers } from '../utils';
-import { TestCase } from '../utils/types';
+import { readAllLinesAsNumbers } from '../../utils';
+import { TestCase } from '../../utils/types';
+import { solvePart1, solvePart2 } from '../../src/2021/day_01';
 
 describe('Day One', () => {
   const example = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];

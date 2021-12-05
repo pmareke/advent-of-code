@@ -1,6 +1,6 @@
-import { solvePart1, solvePart2 } from '../src/day_02';
-import { readAllLines } from '../utils';
-import { TestCase } from '../utils/types';
+import { solvePart1, solvePart2 } from '../../src/2021/day_02';
+import { readAllLines } from '../../utils';
+import { TestCase } from '../../utils/types';
 
 describe('Day Two', () => {
   const example: string[] = [
