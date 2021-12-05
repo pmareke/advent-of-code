@@ -8,7 +8,7 @@ export type Coordinates = {
   y: number;
 };
 
-export type Pair = {
+export type Points = {
   x1: number;
   y1: number;
   x2: number;

@@ -1,13 +1,13 @@
-import { Coordinates, Forest, Pair } from './types';
+import { Coordinates, Forest, Points } from './types';
 
-export function parseInput(input: string[]): Pair[] {
-  return input.reduce<Pair[]>((acc, line) => {
+export function parseInput(input: string[]): Points[] {
+  return input.reduce<Points[]>((acc, line) => {
     acc.push(getCoordinates(line));
     return acc;
   }, []);
 }
 
-function getCoordinates(line: string): Pair {
+function getCoordinates(line: string): Points {
   const coordinates = line
     .split(' -> ')
     .map((c) => c.split(','))
@@ -22,7 +22,7 @@ function getCoordinates(line: string): Pair {
   };
 }
 
-export function generateCoordinates(pairs: Pair[]): Forest {
+export function generateCoordinates(pairs: Points[]): Forest {
   let max = 0;
 
   const coordinates = pairs.reduce<Coordinates[]>((acc, { x1, x2, y1, y2 }) => {

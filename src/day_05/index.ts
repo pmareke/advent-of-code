@@ -7,16 +7,14 @@ export function solvePart1(input: string[]): number {
   );
   const { max, coordinates } = generateCoordinates(pairs);
   const forest = createForest(max);
-  const map = solveForest(forest, coordinates);
-  return map.flatMap((x) => x).filter((x) => x > 1).length;
+  return solveForest(forest, coordinates);
 }
 
 export function solvePart2(input: string[]): number {
   const pairs = parseInput(input);
   const { max, coordinates } = generateCoordinates(pairs);
   const forest = createForest(max);
-  const map = solveForest(forest, coordinates);
-  return map.flatMap((x) => x).filter((x) => x > 1).length;
+  return solveForest(forest, coordinates);
 }
 
 function createForest(max: number): number[][] {
@@ -32,10 +30,10 @@ function createForest(max: number): number[][] {
   return map;
 }
 
-function solveForest(map: number[][], pairs: Coordinates[]): number[][] {
+function solveForest(map: number[][], pairs: Coordinates[]): number {
   Object.entries(pairs).forEach(([, { x, y }]) => {
     map[y][x]++;
   });
 
-  return map;
+  return map.flat().filter((x) => x > 1).length;
 }
