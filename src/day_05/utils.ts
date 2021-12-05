@@ -11,7 +11,7 @@ function getCoordinates(line: string): Points {
   const coordinates = line
     .split(' -> ')
     .map((c) => c.split(','))
-    .flatMap((c) => c)
+    .flat()
     .map(Number);
 
   return {
