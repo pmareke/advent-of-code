@@ -16,7 +16,7 @@ const example: string[] = [
   '00010',
   '01010',
 ];
-const real: string[] = readAllLines('03');
+const real: string[] = readAllLines('2021', '03');
 
 describe('Day Three', () => {
   describe('Part One', () => {

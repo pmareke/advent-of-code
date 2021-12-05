@@ -1,17 +1,17 @@
 import { readFileSync } from 'fs';
 
-export function readFile(day: string): string[] {
-  return readFileSync(`./inputs/day${day}.in`).toString().split('\n');
+export function readFile(year: string, day: string): string[] {
+  return readFileSync(`./inputs/${year}/day${day}.in`).toString().split('\n');
 }
 
-export function readAllLines(day: string): string[] {
-  return readFileSync(`./inputs/day${day}.in`)
+export function readAllLines(year: string, day: string): string[] {
+  return readFileSync(`./inputs/${year}/day${day}.in`)
     .toString()
     .split('\n')
     .map((s) => s.replace(/\r$/, ''))
     .filter((s) => s.length > 0);
 }
 
-export function readAllLinesAsNumbers(day: string): number[] {
-  return readAllLines(day).map(Number);
+export function readAllLinesAsNumbers(year: string, day: string): number[] {
+  return readAllLines(year, day).map(Number);
 }

@@ -15,7 +15,7 @@ const example: string[] = [
   '5,5 -> 8,2',
 ];
 
-const real: string[] = readAllLines('05');
+const real: string[] = readAllLines('2021', '05');
 
 describe('Day Five', () => {
   describe('Part One', () => {

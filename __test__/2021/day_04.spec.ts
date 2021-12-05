@@ -26,7 +26,7 @@ const example: string[] = [
   '',
 ];
 
-const real: string[] = readFile('04');
+const real: string[] = readFile('2021', '04');
 
 describe('Day Four', () => {
   describe('Part One', () => {

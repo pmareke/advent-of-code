@@ -11,7 +11,7 @@ describe('Day Two', () => {
     'down 8',
     'forward 2',
   ];
-  const real: string[] = readAllLines('02');
+  const real: string[] = readAllLines('2021', '02');
   describe('Part One', () => {
     const testCases: TestCase<string>[] = [
       {
