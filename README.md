@@ -145,10 +145,10 @@ The main difficulty today was first parse the input and get a list of points in 
 
 ```javascript
 export type Points = {
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number;
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
 };
 ```
 
@@ -156,18 +156,18 @@ With these points generate a Forest:
 
 ```javascript
 export type Forest = {
-  max: number;
-  coordinates: Coordinates[];
+  max: number,
+  coordinates: Coordinates[],
 };
 export type Coordinates = {
-  x: number;
-  y: number;
+  x: number,
+  y: number,
 };
 ```
 
-And once we have the forest finally solve it!. 
+And once we have the forest finally solve it!.
 
-In order to that we need to draw vertical, horizonal and diagonal lines (in the **first part** we need to filters out the diagonals), and this was the hardest part. 
+In order to that we need to draw vertical, horizonal and diagonal lines (in the **first part** we need to filters out the diagonals), and this was the hardest part.
 
 When the lines are vertical or horizonal is just increase the only the axis that changes, but when the line is diagional we need to know steps in each direction:
 
@@ -181,6 +181,4 @@ for (let i = 0; i <= Math.abs(x1 - x2); i++) {
 }
 ```
 
-
-
-
+### Day 6
