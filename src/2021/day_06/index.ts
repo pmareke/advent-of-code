@@ -19,7 +19,7 @@ function play(days: number, initialState: number[]): number {
     const zeros = lanternfishsByAge[0];
 
     lanternfishsByAge.forEach((_, index) => {
-      lanternfishsByAge[index] = lanternfishsByAge[index + 1]; // grow up
+      lanternfishsByAge[index] = lanternfishsByAge[index + 1]; // get older
     });
 
     lanternfishsByAge[6] += zeros; // every day new lanternfishs reset.
