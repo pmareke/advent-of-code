@@ -183,7 +183,7 @@ for (let i = 0; i <= Math.abs(x1 - x2); i++) {
 
 ### Day 6
 
-Today was an easy day finally!
+Today was an easy day finally! The tricky part was that the **part one** was able to solved using arrays but in the **part two** it produces and overdflow, and because of that I needed to change the approach.
 
 The main problem was counting the initial number of Lanternfishs per each day of live (from o to 8) and then iterate a **N** number of days, **part one** 80 and **part two** 256.
 
