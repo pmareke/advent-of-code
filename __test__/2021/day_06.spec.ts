@@ -1,9 +1,10 @@
 import { solvePart1, solvePart2 } from '../../src/2021/day_06';
+import { readFile } from '../../utils';
 import { TestCase } from '../../utils/types';
 
-const example: string[] = [];
+const example = ['3,4,3,1,2'];
 
-const real: string[] = [];
+const real: string[] = readFile('2021', '06');
 
 describe('Day Six', () => {
   describe('Part One', () => {
@@ -11,12 +12,12 @@ describe('Day Six', () => {
       {
         name: 'example',
         input: example,
-        expected: 0,
+        expected: 5934,
       },
       {
         name: 'real',
         input: real,
-        expected: 0,
+        expected: 390011,
       },
     ];
 
@@ -32,12 +33,12 @@ describe('Day Six', () => {
       {
         name: 'example',
         input: example,
-        expected: 0,
+        expected: 26984457539,
       },
       {
         name: 'real',
         input: real,
-        expected: 0,
+        expected: 1746710169834,
       },
     ];
 
