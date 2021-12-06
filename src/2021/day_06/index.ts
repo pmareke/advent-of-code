@@ -16,14 +16,14 @@ function play(days: number, initialState: number[]): number {
   });
 
   for (let i = 0; i < days; i++) {
-    const zeros = lanternfishsByAge[0];
+    const dies = lanternfishsByAge[0];
 
     lanternfishsByAge.forEach((_, index) => {
       lanternfishsByAge[index] = lanternfishsByAge[index + 1]; // get older
     });
 
-    lanternfishsByAge[6] += zeros; // every day new lanternfishs reset.
-    lanternfishsByAge[8] = zeros; // every day new lanternfishs born.
+    lanternfishsByAge[6] += dies; // every day die lanternfishs resets.
+    lanternfishsByAge[8] = dies; // every day the same number of new lanternfishs borns.
   }
 
   return lanternfishsByAge.reduce((a, b) => a + b);
