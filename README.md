@@ -182,3 +182,33 @@ for (let i = 0; i <= Math.abs(x1 - x2); i++) {
 ```
 
 ### Day 6
+
+Today was an easy day finally!
+
+The main problem was counting the initial number of Lanternfishs per each day of live (from o to 8) and then iterate a **N** number of days, **part one** 80 and **part two** 256.
+
+In each iteration the living lanternfishs decreases their number of days by one until this value is **zero**, in that case its value resets to **six** and a new lanternfish borns with a value of **8**.
+
+```javascript
+function play(days: number, initialState: number[]): number {
+  const lanternfishsByAge = Array(9).fill(0);
+
+  initialState.forEach((i) => {
+    lanternfishsByAge[i]++;
+  });
+
+  for (let i = 0; i < days; i++) {
+    const zeros = lanternfishsByAge[0];
+
+    lanternfishsByAge.forEach((_, index) => {
+      lanternfishsByAge[index] = lanternfishsByAge[index + 1]; // get older
+    });
+
+    lanternfishsByAge[6] += zeros; // every day new lanternfishs reset.
+    lanternfishsByAge[8] = zeros; // every day new lanternfishs born.
+  }
+
+  return lanternfishsByAge.reduce((a, b) => a + b);
+}
+
+```
