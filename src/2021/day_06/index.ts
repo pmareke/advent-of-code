@@ -9,22 +9,22 @@ export function solvePart2(input: string[]): number {
 }
 
 function play(days: number, initialState: number[]): number {
-  const lanternfishs = Array(9).fill(0);
+  const lanternfishsByAge = Array(9).fill(0);
 
   initialState.forEach((i) => {
-    lanternfishs[i]++;
+    lanternfishsByAge[i]++;
   });
 
   for (let i = 0; i < days; i++) {
-    const zeros = lanternfishs[0];
+    const zeros = lanternfishsByAge[0];
 
-    lanternfishs.forEach((_, index) => {
-      lanternfishs[index] = lanternfishs[index + 1]; // grow up
+    lanternfishsByAge.forEach((_, index) => {
+      lanternfishsByAge[index] = lanternfishsByAge[index + 1]; // grow up
     });
 
-    lanternfishs[6] += zeros; // every day new lanternfishs reset.
-    lanternfishs[8] = zeros; // every day new lanternfishs born.
+    lanternfishsByAge[6] += zeros; // every day new lanternfishs reset.
+    lanternfishsByAge[8] = zeros; // every day new lanternfishs born.
   }
 
-  return lanternfishs.reduce((a, b) => a + b);
+  return lanternfishsByAge.reduce((a, b) => a + b);
 }
