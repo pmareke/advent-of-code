@@ -7,14 +7,14 @@ export function solvePart1(input: string[]): number {
 
 export function solvePart2(input: string[]): number {
   const numbers = input[0].split(',').map(Number);
-  let lowestSum = Infinity;
+  const lowestSums = [];
 
   for (let i = Math.min(...numbers); i <= Math.max(...numbers); i++) {
     let total = 0;
     numbers.forEach((subject) => (total += factorial(Math.abs(subject - i))));
-    lowestSum = Math.min(total, lowestSum);
+    lowestSums.push(total);
   }
-  return lowestSum;
+  return Math.min(...lowestSums);
 }
 
 function median(numbers: number[]): number {
