@@ -212,3 +212,16 @@ function play(days: number, initialState: number[]): number {
 }
 
 ```
+
+### Day 7
+
+The **part one** was really straightforward, just calculate the median of the numbers and calculate the fuel of each number to this median.
+
+But the **part two** was more difficult, my first approach was try to use brute force but the time was huge so I discarded it. 
+
+Finally I decided to:
+
+- Sort the list of numbers.
+- Iterate from the min to the max.
+- For each case calculate the factorial total distance of all the numbers.
+- Get the min of all distances.
