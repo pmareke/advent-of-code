@@ -210,14 +210,13 @@ function play(days: number, initialState: number[]): number {
 
   return lanternfishsByAge.reduce((a, b) => a + b);
 }
-
 ```
 
 ### Day 7
 
 The **part one** was really straightforward, just calculate the median of the numbers and calculate the fuel of each number to this median.
 
-But the **part two** was more difficult, my first approach was try to use brute force but the time was huge so I discarded it. 
+But the **part two** was more difficult, my first approach was try to use brute force but the time was huge so I discarded it.
 
 Finally I decided to:
 
@@ -225,3 +224,11 @@ Finally I decided to:
 - Iterate from the min to the max.
 - For each case calculate the factorial total distance of all the numbers.
 - Get the min of all distances.
+
+### Day 8
+
+Horrible day...the **part one** sooo easy and the **second part** soo boring.
+
+The solution is not the best solution at all but it works.
+
+Tomorrow is a new day!
