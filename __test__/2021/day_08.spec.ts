@@ -22,7 +22,7 @@ const example: string[] = [
 
 const real: string[] = readAllLines('2021', '08');
 
-describe('Day Seven', () => {
+describe('Day Eight', () => {
   describe('Part One', () => {
     const testCases: TestCase<string>[] = [
       {
