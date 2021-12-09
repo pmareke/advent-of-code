@@ -1,6 +1,6 @@
 export function solvePart1(input: string[]): number {
   const map = input.map((line) => line.split('').map(Number));
-  let result = 0;
+  let lowers = 0;
 
   for (let i = 0; i < map.length; i++) {
     for (let j = 0; j < map[i].length; j++) {
@@ -10,23 +10,23 @@ export function solvePart1(input: string[]): number {
         [0, -1],
         [-1, 0],
       ];
-      const x = values
+      const points = values
         .filter(
-          ([h, k]) =>
-            h + i >= 0 &&
-            h + i < map.length &&
-            k + j >= 0 &&
-            k + j < map[0].length,
+          ([x, y]) =>
+            x + i >= 0 &&
+            x + i < map.length &&
+            y + j >= 0 &&
+            y + j < map[0].length,
         )
         .map(([h, k]) => map[h + i][k + j]);
 
-      if (map[i][j] < Math.min(...x)) {
-        result += 1 + map[i][j];
+      if (map[i][j] < Math.min(...points)) {
+        lowers += 1 + map[i][j];
       }
     }
   }
 
-  return result;
+  return lowers;
 }
 
 export function solvePart2(input: string[]): number {
