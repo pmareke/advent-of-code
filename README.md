@@ -232,3 +232,15 @@ Horrible day...the **part one** sooo easy and the **second part** soo boring.
 The solution is not the best solution at all but it works.
 
 Tomorrow is a new day!
+
+### Day 9
+
+The **part one** was about find if each point is the lowest of their neighbors, diagonals are not valid today, and sum hoy many lowers are.
+
+The **second part** was the hardest one as you need to know if your neighbors are greather than you and also not nine. If they are valid neighbors you need to  ask them for their neighbors and so on (recursion).
+
+### Day 10
+
+Finally and easy day, the key point today was saving the open characters in an array and pop them to validate that the lastest open is the pair of the current close one.
+
+In the **part one** you have to find the incorrect lines and in the **part two** the incomoplete ones.
