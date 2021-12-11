@@ -17,7 +17,7 @@ const example: string[] = [
 
 const real: string[] = readAllLines('2021', '10');
 
-describe('Day Nine', () => {
+describe('Day Ten', () => {
   describe('Part One', () => {
     const testCases: TestCase<string>[] = [
       {
