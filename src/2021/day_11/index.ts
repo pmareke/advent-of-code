@@ -40,7 +40,7 @@ function nextStep(cave: number[][]): number {
         }
       }
     }
-  } while (pendingFlashes(cave, 10));
+  } while (pendingFlashes(cave));
 
   return lights;
 }
@@ -75,10 +75,6 @@ function increaseAdjacents(cave: number[][], i: number, j: number) {
   }
 }
 
-function pendingFlashes(input: number[][], num: number) {
-  return input.reduce((acc, arr) => {
-    arr = arr.filter((digit) => (num < 10 ? digit == num : digit >= 10));
-    acc += arr.length;
-    return acc;
-  }, 0);
+function pendingFlashes(input: number[][]): boolean {
+  return input.some((line) => line.some((digit) => digit >= 10));
 }
