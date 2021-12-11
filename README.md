@@ -235,9 +235,9 @@ Tomorrow is a new day!
 
 ### Day 9
 
-The **part one** was about find if each point is the lowest of their neighbors, diagonals are not valid today, and sum hoy many lowers are.
+The **part one** was about find if each point is the lowest of their neighbours, diagonals are not valid today, and sum hoy many lowers are.
 
-The **second part** was the hardest one as you need to know if your neighbors are greather than you and also not nine. If they are valid neighbors you need to ask them for their neighbors and so on (recursion).
+The **second part** was the hardest one as you need to know if your neighbours are greather than you and also not nine. If they are valid neighbours you need to ask them for their neighbours and so on (recursion).
 
 ### Day 10
 
@@ -247,9 +247,9 @@ In the **part one** you have to find the incorrect lines and in the **part two**
 
 ### Day 11
 
-Just another day playing with neighbors in a grid.
+Just another day playing with neighbours in a grid.
 
-In the **part one** we need to increase the value of each point by one and if the value after that is `0` we need to update again all of their neighbors except the one that are already `0`.
+In the **part one** we need to increase the value of each point by one and if the value after that is `0` we need to update again all of their neighbours except the one that are already `0`.
 
 The main problem here is apply recursion until there is not elements to update.
 
