@@ -46,26 +46,20 @@ function nextStep(cave: number[][]): number {
 }
 
 function increaseAdjacents(cave: number[][], i: number, j: number) {
-  if (i > 0 && cave[i - 1][j] != 0) cave[i - 1][j] += 1;
+  /*
+      |__LU__|_U_|__UP__|
+      |__L___|_C_|__R___|
+      |__LD__|_D_|__RD__|
+  */
 
-  if (i > 0 && j < cave[i - 1].length - 1 && cave[i - 1][j + 1] != 0) {
-    cave[i - 1][j + 1] += 1;
-  }
-
-  if (j < cave[i].length - 1 && cave[i][j + 1] != 0) cave[i][j + 1] += 1;
-
-  if (i < cave.length - 1 && cave[i + 1][j] != 0) {
-    cave[i + 1][j] += 1;
-  }
-
-  if (i < cave.length - 1 && j > 0 && cave[i + 1][j - 1] != 0) {
-    cave[i + 1][j - 1] += 1;
-  }
-
+  // Up
   if (j > 0 && cave[i][j - 1] != 0) cave[i][j - 1] += 1;
-
-  if (i > 0 && j > 0 && cave[i - 1][j - 1] != 0) cave[i - 1][j - 1] += 1;
-
+  // Right-Up
+  if (i < cave.length - 1 && j > 0 && cave[i + 1][j - 1] != 0)
+    cave[i + 1][j - 1] += 1;
+  // Right
+  if (i < cave.length - 1 && cave[i + 1][j] != 0) cave[i + 1][j] += 1;
+  // Right-Down
   if (
     i < cave.length - 1 &&
     j < cave[i + 1].length - 1 &&
@@ -73,6 +67,15 @@ function increaseAdjacents(cave: number[][], i: number, j: number) {
   ) {
     cave[i + 1][j + 1] += 1;
   }
+  // Down
+  if (j < cave[i].length - 1 && cave[i][j + 1] != 0) cave[i][j + 1] += 1;
+  // Down-Left
+  if (i > 0 && j < cave[i - 1].length - 1 && cave[i - 1][j + 1] != 0)
+    cave[i - 1][j + 1] += 1;
+  // Left
+  if (i > 0 && cave[i - 1][j] != 0) cave[i - 1][j] += 1;
+  // Left-Up
+  if (i > 0 && j > 0 && cave[i - 1][j - 1] != 0) cave[i - 1][j - 1] += 1;
 }
 
 function pendingFlashes(input: number[][]): boolean {
