@@ -237,10 +237,20 @@ Tomorrow is a new day!
 
 The **part one** was about find if each point is the lowest of their neighbors, diagonals are not valid today, and sum hoy many lowers are.
 
-The **second part** was the hardest one as you need to know if your neighbors are greather than you and also not nine. If they are valid neighbors you need to  ask them for their neighbors and so on (recursion).
+The **second part** was the hardest one as you need to know if your neighbors are greather than you and also not nine. If they are valid neighbors you need to ask them for their neighbors and so on (recursion).
 
 ### Day 10
 
 Finally and easy day, the key point today was saving the open characters in an array and pop them to validate that the lastest open is the pair of the current close one.
 
 In the **part one** you have to find the incorrect lines and in the **part two** the incomoplete ones.
+
+### Day 11
+
+Just another day playing with neighbors in a grid.
+
+In the **part one** we need to increase the value of each point by one and if the value after that is `0` we need to update again all of their neighbors except the one that are already `0`.
+
+The main problem here is apply recursion until there is not elements to update.
+
+The **part two** was really easy as the main difference was that now instead of itereate a fixed number of steps, we need to iterate until the grid is full of `0`s.
