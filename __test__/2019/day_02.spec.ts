@@ -8,6 +8,11 @@ describe('Day Two', () => {
   describe('Part One', () => {
     const testCases: TestCase<number>[] = [
       {
+        name: 'example',
+        input: example,
+        expected: 3500,
+      },
+      {
         name: 'real',
         input: real,
         noun: 12,
@@ -18,7 +23,7 @@ describe('Day Two', () => {
 
     testCases.forEach(({ name, input, noun, verb, expected }) => {
       it(`${name}`, () => {
-        expect(solvePart1([...input], noun ?? 0, verb ?? 0)).toBe(expected);
+        expect(solvePart1([...input], noun ?? 9, verb ?? 10)).toBe(expected);
       });
     });
   });

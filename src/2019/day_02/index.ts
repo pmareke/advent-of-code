@@ -10,9 +10,11 @@ export function solvePart1(
     const [op, d1, d2, d3] = input.slice(i, i + 4);
     if (op === 1) {
       input[d3] = input[d1] + input[d2];
-    } else if (op === 2) {
+    }
+    if (op === 2) {
       input[d3] = input[d1] * input[d2];
-    } else if (op === 99) {
+    }
+    if (op === 99) {
       return input[0];
     }
   }
