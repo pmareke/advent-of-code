@@ -254,3 +254,15 @@ In the **part one** we need to increase the value of each point by one and if th
 The main problem here is apply recursion until there is not elements to update.
 
 The **part two** was really easy as the main difference was that now instead of itereate a fixed number of steps, we need to iterate until the grid is full of `0`s.
+
+### Day 12
+
+Todays puzzle was a graph in which we have to calculate all the posible routes using a modified version of the [DFS](https://en.wikipedia.org/wiki/Depth-first_search) algorithm.
+
+The main difficulty was knowinf which algorithim uses.
+
+### Day 13
+
+The main problem today was parsing the input and then create the matrix. After that we had to fold the matrix based on some instructions and count a set of characters, nothing hard.
+
+In the **part two** we had to iterate over all the intructions and readd the final code.
