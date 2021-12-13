@@ -27,9 +27,7 @@ export function solvePart2(input: string[]): number {
 
   // HZKHFEJZ
   console.log(
-    matrix
-      .map((row) => row.join('').replace(/\./g, '  ').replace(/#/g, '██'))
-      .join('\r\n'),
+    matrix.map((row) => row.join('').replace(/\./g, '  ')).join('\r\n'),
   );
 
   return matrix.flat().filter((x) => x === '#').length;
