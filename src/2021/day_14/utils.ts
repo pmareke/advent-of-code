@@ -21,24 +21,21 @@ export function createPolymer(input: string[]): Polymer {
   };
 }
 
-export function step(
-  template: { [key: string]: number },
-  pairs: { [key: string]: string },
-) {
+export function step({ pairs, template }: Polymer): { [key: string]: number } {
   return Object.keys(template).reduce((acc, key) => {
     const key1 = key[0] + pairs[key];
     const key2 = pairs[key] + key[1];
-    acc[key1] = acc[key1] ? acc[key1] + 1 * template[key] : 1 * template[key];
-    acc[key2] = acc[key2] ? acc[key2] + 1 * template[key] : 1 * template[key];
+    acc[key1] = (acc[key1] ?? 0) + 1 * template[key];
+    acc[key2] = (acc[key2] ?? 0) + 1 * template[key];
     return acc;
   }, {} as { [key: string]: number });
 }
 
-export function calculateOcurrences(template: { [key: string]: number }) {
+export function calculateOcurrences({ template }: Polymer) {
   const ocurrences = Object.keys(template).reduce((acc, key) => {
     const letter = key.split('')[1];
     const times = template[key];
-    acc[letter] = acc[letter] ? acc[letter] + times : times;
+    acc[letter] = (acc[letter] ?? 1) + times;
     return acc;
   }, {} as { [key: string]: number });
 
