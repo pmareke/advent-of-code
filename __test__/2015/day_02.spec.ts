@@ -2,7 +2,7 @@ import { solvePart1, solvePart2 } from '../../src/2015/day_02';
 import { readFile } from '../../utils';
 import { TestCase } from '../../utils/types';
 
-describe('Day One', () => {
+describe('Day Two', () => {
   const real = readFile('2015', '02');
   describe('Part One', () => {
     const testCases: TestCase<string>[] = [
