@@ -266,3 +266,11 @@ The main difficulty was knowinf which algorithim uses.
 The main problem today was parsing the input and then create the matrix. After that we had to fold the matrix based on some instructions and count a set of characters, nothing hard.
 
 In the **part two** we had to iterate over all the intructions and readd the final code.
+
+### Day 14
+
+Today's problem was about parsing and later manipulate strings adding new ones based on the previous one. For the **part two** you can use the same approach as the number of elements in the arrays produces overflow. So we need to change the apporach and usea a Map to save the ocurrences and sum them at the end.
+
+### Day 15
+
+We need to find the shortest path between two points inside a 2D matrix, who said Dijkstra?
