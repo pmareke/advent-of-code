@@ -6,14 +6,15 @@ export type Target = {
 };
 
 export function createTargetArea(input: string): Target {
-  const [x, y] = input.split('target area: ')[1].split(', ');
-  const [minX, maxX] = x.split('x=')[1].split('..').map(Number);
-  const [minY, maxY] = y.split('y=')[1].split('..').map(Number);
-
+  const REGEX = /target area: x=(\d+)..(\d+), y=(-?\d+)..(-?\d+)/g;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const [x1, x2, y1, y2] = REGEX.exec(input)!
+    .slice(1, 5)
+    .map((x) => parseInt(x));
   return {
-    x1: minX,
-    x2: maxX,
-    y1: minY,
-    y2: maxY,
+    x1,
+    x2,
+    y1,
+    y2,
   };
 }

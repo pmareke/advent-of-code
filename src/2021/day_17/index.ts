@@ -2,7 +2,8 @@ import { createTargetArea, Target } from './utils';
 
 export function solvePart1(input: string[]): number {
   const targetArea = createTargetArea(input[0]);
-  return Math.max(...solve(targetArea));
+  const absMinY = Math.abs(Math.min(targetArea.y1, targetArea.y2));
+  return (absMinY * (absMinY - 1)) / 2;
 }
 
 export function solvePart2(input: string[]) {
