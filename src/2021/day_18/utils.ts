@@ -28,22 +28,22 @@ export function addNodetoTree(tree: Snailfish, node: Snailfish): Snailfish {
 }
 
 export function reduce(tree: Snailfish): Snailfish {
-  let changed;
+  let hasChanged;
   do {
-    changed = false;
+    hasChanged = false;
 
     const res = explode(tree);
     if (res != undefined) {
-      const [zeroTree, left, right] = res;
-      const pieces = order(tree);
-      const i = pieces.indexOf(zeroTree);
-      if (i > 0) pieces[i - 1].value! += left;
-      if (i < pieces.length - 1) pieces[i + 1].value! += right;
-      changed = true;
+      const [parent, left, right] = res;
+      const pieces = getTree(tree);
+      const index = pieces.indexOf(parent);
+      if (index > 0) pieces[index - 1].value! += left;
+      if (index < pieces.length - 1) pieces[index + 1].value! += right;
+      hasChanged = true;
     } else {
-      changed = split(tree);
+      hasChanged = split(tree);
     }
-  } while (changed);
+  } while (hasChanged);
   return tree;
 }
 
@@ -52,8 +52,8 @@ export function magnitude(tree: Snailfish): number {
   return 3 * magnitude(tree.left!) + 2 * magnitude(tree.right!);
 }
 
-const order = (x: Snailfish): Snailfish[] =>
-  x.type === 'leaf' ? [x] : order(x.left!).concat(order(x.right!));
+const getTree = (x: Snailfish): Snailfish[] =>
+  x.type === 'leaf' ? [x] : [...getTree(x.left!), ...getTree(x.right!)];
 
 function explode(
   x: Snailfish,
