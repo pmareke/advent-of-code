@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --write .",
     "prepare": "husky install",
