@@ -19,6 +19,7 @@
   "author": "Pedro Lopez Mareque",
   "license": "ISC",
   "dependencies": {
+    "crypto": "^1.0.1",
     "typescript": "^4.5.2"
   },
   "devDependencies": {
