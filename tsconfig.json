@@ -6,7 +6,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "types": ["vitest/global"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "__test__"]
