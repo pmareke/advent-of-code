@@ -10,12 +10,12 @@ local-setup: ## Set up the local environment (e.g. install git hooks)
 	scripts/local-setup.sh
 
 .PHONY: build
-install: ## Build image
+build: ## Build image
 	docker build . -t aoc
 
 .PHONY: test
 test: ## Run all available tests
-	docker run aoc
+	docker run -v .:/app aoc
 
 .PHONY: pre-commit
 pre-commit: test
