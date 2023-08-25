@@ -4,4 +4,6 @@ WORKDIR /app
 
 COPY . ./
 
-CMD ["ruby", "main.rb"]
+RUN bundle install
+
+CMD ["bundle", "exec", "rspec"]
