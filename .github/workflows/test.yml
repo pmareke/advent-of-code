@@ -17,7 +17,7 @@ jobs:
     - name: Set up Ruby 3.2
       uses: ruby/setup-ruby@v1
       with:
-        python-version: "3.2"
+        ruby-version: "3.2"
         bundler-cache: true
     - name: Tests
       run: bundle exec rspec
