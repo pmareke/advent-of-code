@@ -1,4 +1,4 @@
-class DayOne
+class DayOne2022
   def self.part_one(groups)
     self.calculate(groups)
   end
@@ -19,7 +19,8 @@ class DayOne
 
   def self.calculate_sum_for(group)
     group
-      .split("\n")
+      .split("
+")
       .map(&:to_i)
       .sum
   end
