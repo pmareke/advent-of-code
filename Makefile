@@ -13,9 +13,13 @@ local-setup: ## Set up the local environment (e.g. install git hooks)
 build: ## Build image
 	docker build . -t aoc
 
+.PHONY: check-format
+check-format: ## Check format
+	docker run -it -v .:/app --entrypoint rufo aoc -c .
+
 .PHONY: test
 test: ## Run all available tests
 	docker run -v .:/app aoc
 
 .PHONY: pre-commit
-pre-commit: test
+pre-commit: check-format test

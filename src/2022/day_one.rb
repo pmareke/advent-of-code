@@ -9,9 +9,9 @@ class DayOne
 
   private
 
-  def self.calculate(groups, limit = 1) 
+  def self.calculate(groups, limit = 1)
     groups
-      .map{ |group| calculate_sum_for(group) }
+      .map { |group| calculate_sum_for(group) }
       .sort
       .last(limit)
       .sum
@@ -19,7 +19,8 @@ class DayOne
 
   def self.calculate_sum_for(group)
     group
-      .split("\n").map(&:to_i)
+      .split("\n")
+      .map(&:to_i)
       .sum
   end
 end
