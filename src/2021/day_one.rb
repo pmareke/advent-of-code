@@ -12,7 +12,6 @@ class DayOne2021
   def self.calculate(numbers, limit: 2)
     numbers
       .each_cons(limit)
-      .to_a
       .count { |element| element[0] < element[limit - 1] }
   end
 end
