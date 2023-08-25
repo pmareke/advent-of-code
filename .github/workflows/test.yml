@@ -19,5 +19,7 @@ jobs:
       with:
         ruby-version: "3.2"
         bundler-cache: true
+    - name: Check format
+      run: rufo -c .
     - name: Tests
       run: bundle exec rspec
