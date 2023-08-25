@@ -15,10 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up Ruby 3.2
-      uses: actions/setup-ruby@v3
+      uses: ruby/setup-ruby@v1
       with:
         python-version: "3.2"
-    - name: Install dependencies
-      run: bunlde install
+        bundler-cache: true
     - name: Tests
       run: bundle exec rspec
