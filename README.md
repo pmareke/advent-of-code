@@ -1,4 +1,4 @@
-# Advent of Code
+# Advent of Code ![status](https://github.com/pmareke/ruby-advent-of-code/actions/workflows/test.yml/badge.svg)
 
 ## Solutions for the AoC 2022
 
