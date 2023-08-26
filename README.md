@@ -20,6 +20,10 @@
 
 - [X] [Day 1](https://adventofcode.com/2018/day/1)
 
+## Solutions for the AoC 2017
+
+- [X] [Day 1](https://adventofcode.com/2017/day/1)
+
 ## How to use this repo
 
 - First install the git hooks with `make local-setup`.
