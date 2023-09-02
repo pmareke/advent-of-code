@@ -24,7 +24,7 @@ class DayOne2016
       z = coordinate.start_with?("L") ? 3 : 1
       d = (d + z) % 4
       distance = coordinate[1..].to_i
-      for _ in (0...distance)
+      (0...distance).each do |_|
         x += dx[d]
         y += dy[d]
         point = "#{x},#{y}"

@@ -9,7 +9,7 @@ class DayOne2018
     seen = Set[]
     frequency = 0
     while true
-      for number in numbers
+      numbers.each do |number|
         frequency += number
         if seen.include?(frequency)
           return frequency
