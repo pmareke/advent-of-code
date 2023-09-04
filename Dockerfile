@@ -6,4 +6,4 @@ COPY . ./
 
 RUN bundle install
 
-CMD ["bundle", "exec", "rspec"]
+CMD ["bundle", "exec", "ruby", "spec/test_suite.rb"]

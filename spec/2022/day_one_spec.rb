@@ -1,22 +1,22 @@
 require_relative "../../src/2022/day_one"
 
-describe DayOne2022 do
-  before(:all) do
+class TestDayOne2022 < Minitest::Test
+  def setup
     lines = File.open("inputs/2022/day_one.in")
     @groups = lines.read().split("
 
 ")
   end
 
-  it "part one" do
+  def test_part_one
     result = DayOne2022::part_one(@groups)
 
-    expect(result).to eq(72070)
+    assert_equal result, 72070
   end
 
-  it "part two" do
+  def test_part_two
     result = DayOne2022::part_two(@groups)
 
-    expect(result).to eq(211805)
+    assert_equal result, 211805
   end
 end

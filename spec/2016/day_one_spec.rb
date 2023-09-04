@@ -1,7 +1,7 @@
 require_relative "../../src/2016/day_one"
 
-describe DayOne2016 do
-  before(:all) do
+class TestDayOne2016 < Minitest::Test
+  def setup
     @coordinates = File
       .open("inputs/2016/day_one.in")
       .readlines()
@@ -9,15 +9,15 @@ describe DayOne2016 do
       .split(", ")
   end
 
-  it "part one" do
+  def test_part_one
     result = DayOne2016::part_one(@coordinates)
 
-    expect(result).to eq(271)
+    assert_equal result, 271
   end
 
-  it "part two" do
+  def test_part_two
     result = DayOne2016::part_two(@coordinates)
 
-    expect(result).to eq(153)
+    assert_equal result, 153
   end
 end

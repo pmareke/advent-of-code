@@ -1,19 +1,19 @@
 require_relative "../../src/2021/day_one"
 
-describe DayOne2021 do
-  before(:all) do
+class TestDayOne2021 < Minitest::Test
+  def setup
     @numbers = File.open("inputs/2021/day_one.in").map(&:to_i)
   end
 
-  it "part one" do
+  def test_part_one
     result = DayOne2021::part_one(@numbers)
 
-    expect(result).to eq(1722)
+    assert_equal result, 1722
   end
 
-  it "part two" do
+  def test_part_two
     result = DayOne2021::part_two(@numbers)
 
-    expect(result).to eq(1748)
+    assert_equal result, 1748
   end
 end
