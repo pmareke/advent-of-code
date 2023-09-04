@@ -8,12 +8,12 @@ task :local_setup do
   sh "scripts/local-setup.sh"
 end
 
-task :build do
-  sh "docker build . -t aoc"
+task :check_format do
+  bundle exec "rufo -c ."
 end
 
-task :check_format do
-  sh "docker run -it --entrypoint rufo aoc -c ."
+task :reformat do
+  bundle exec "rufo ."
 end
 
 multitask pre_commit: [:check_format, :test]
