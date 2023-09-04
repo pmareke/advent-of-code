@@ -5,11 +5,11 @@ task :test do
 end
 
 task :local_setup do
-    scripts/local-setup.sh
+    sh "scripts/local-setup.sh"
 end
 
 task :build do
-    docker build . -t aoc
+    sh "docker build . -t aoc"
 end
 
 task :check_format do
