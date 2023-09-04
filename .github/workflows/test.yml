@@ -20,6 +20,6 @@ jobs:
         ruby-version: "3.2"
         bundler-cache: true
     - name: Check format
-      run: rake check_format
+      run: rufo -c .
     - name: Tests
-      run: rake
+      run: ruby spec/test_suite.rb
