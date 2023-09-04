@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     minitest (5.19.0)
+    rake (13.0.6)
     rufo (0.16.2)
 
 PLATFORMS
@@ -9,6 +10,7 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
+  rake
   rufo
 
 BUNDLED WITH
