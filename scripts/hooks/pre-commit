@@ -3,4 +3,4 @@ set -e
 
 exec < /dev/tty
 
-make pre-commit
+rake pre_commit
