@@ -16,4 +16,4 @@ task :reformat do
   bundle exec "rufo ."
 end
 
-multitask pre_commit: [:check_format, :test]
+task pre_commit: [:check_format, :test]
