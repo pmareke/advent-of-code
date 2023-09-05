@@ -16,4 +16,7 @@ task :reformat do
   bundle exec "rufo ."
 end
 
-task pre_commit: [:check_format, :test]
+task :pre_commit do
+  ruby "test/test_suite.rb"
+  bundle exec "rufo -c ."
+end
