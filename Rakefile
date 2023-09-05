@@ -1,7 +1,7 @@
 task default: %w[test]
 
 task :test do
-  ruby "spec/test_suite.rb"
+  ruby "test/test_suite.rb"
 end
 
 task :local_setup do

@@ -1,4 +1,3 @@
-require "minitest/autorun"
 require_relative "../../src/2015/day_three"
 
 class TestDayThree2015 < Minitest::Test
