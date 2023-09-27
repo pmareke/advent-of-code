@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "set"
 
 class DayOne2018
@@ -8,12 +10,11 @@ class DayOne2018
   def self.part_two(numbers)
     seen = Set[]
     frequency = 0
-    while true
+    loop do
       numbers.each do |number|
         frequency += number
-        if seen.include?(frequency)
-          return frequency
-        end
+        return frequency if seen.include?(frequency)
+
         seen.add(frequency)
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "set"
 
 class DayOne2016
@@ -28,11 +30,9 @@ class DayOne2016
         x += dx[d]
         y += dy[d]
         point = "#{x},#{y}"
-        if seen.include?(point)
-          return x.abs + y.abs
-        else
-          seen.add(point)
-        end
+        return x.abs + y.abs if seen.include?(point)
+
+        seen.add(point)
       end
     end
   end

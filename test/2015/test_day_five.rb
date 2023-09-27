@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "minitest/autorun"
 require_relative "../../src/2015/day_five"
 
@@ -7,13 +9,13 @@ class TestDayFive2015 < Minitest::Test
   end
 
   def test_part_one
-    result = DayFive2015::part_one(@lines)
+    result = DayFive2015.part_one(@lines)
 
     assert_equal 238, result
   end
 
   def test_part_two
-    result = DayFive2015::part_two(@lines)
+    result = DayFive2015.part_two(@lines)
 
     assert_equal 69, result
   end

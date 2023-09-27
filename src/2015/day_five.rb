@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DayFive2015
   def self.part_one(lines)
     lines.count(&:nice_part_one?)

@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class DayOne2021
   def self.part_one(numbers)
-    self.calculate(numbers)
+    calculate(numbers)
   end
 
   def self.part_two(numbers)
-    self.calculate(numbers, limit: 4)
+    calculate(numbers, limit: 4)
   end
 
-  private
-
-  def self.calculate(numbers, limit: 2)
-    numbers
-      .each_cons(limit)
-      .count { |element| element[0] < element[limit - 1] }
+  class << self
+    def calculate(numbers, limit: 2)
+      numbers
+        .each_cons(limit)
+        .count { |element| element[0] < element[limit - 1] }
+    end
   end
 end

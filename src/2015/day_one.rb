@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class DayOne2015
   def self.part_one(parenthesis)
     parenthesis.inject(1) do |acc, letter|
-      acc += letter == "(" ? 1 : -1
+      score = letter == "(" ? 1 : -1
+      acc + score
     end
   end
 

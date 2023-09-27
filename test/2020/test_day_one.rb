@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../../src/2020/day_one"
 
 class TestDayOne2020 < Minitest::Test
@@ -6,14 +8,14 @@ class TestDayOne2020 < Minitest::Test
   end
 
   def test_part_one
-    result = DayOne2020::part_one(@numbers)
+    result = DayOne2020.part_one(@numbers)
 
-    assert_equal result, 918339
+    assert_equal 918_339, result
   end
 
   def test_part_two
-    result = DayOne2020::part_two(@numbers)
+    result = DayOne2020.part_two(@numbers)
 
-    assert_equal result, 23869440
+    assert_equal 23_869_440, result
   end
 end
