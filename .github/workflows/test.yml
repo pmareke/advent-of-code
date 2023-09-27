@@ -16,5 +16,7 @@ jobs:
         bundler-cache: true
     - name: Check format
       run: bundle exec rufo -c .
+    - name: Check style
+      run: bundle exec rubocop **/**/*.rb
     - name: Tests
       run: bundle exec rake
