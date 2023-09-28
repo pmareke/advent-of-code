@@ -11,6 +11,7 @@ require_relative "2015/test_day_five"
 require_relative "2016/test_day_one"
 
 require_relative "2017/test_day_one"
+require_relative "2017/test_day_two"
 
 require_relative "2018/test_day_one"
 
