@@ -4,7 +4,7 @@ require_relative "../../src/2022/day_two"
 
 class TestDayTwo2022 < Minitest::Test
   def setup
-    @pairs = File.open("inputs/2022/day_two.in").readlines.map(&:strip).map {|pair| pair.split(" ") }
+    @pairs = File.open("inputs/2022/day_two.in").readlines.map(&:strip).map(&:split)
   end
 
   def test_part_one
@@ -16,6 +16,6 @@ class TestDayTwo2022 < Minitest::Test
   def test_part_two
     result = DayTwo2022.part_two(@pairs)
 
-    assert_equal 11373, result
+    assert_equal 11_373, result
   end
 end
