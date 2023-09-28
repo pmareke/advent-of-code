@@ -22,6 +22,7 @@
 ## Solutions for the AoC 2018
 
 - [X] [Day 1](https://adventofcode.com/2018/day/1)
+- [X] [Day 2](https://adventofcode.com/2018/day/2)
 
 ## Solutions for the AoC 2017
 

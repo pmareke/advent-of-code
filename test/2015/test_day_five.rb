@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "minitest/autorun"
 require_relative "../../src/2015/day_five"
 
 class TestDayFive2015 < Minitest::Test
