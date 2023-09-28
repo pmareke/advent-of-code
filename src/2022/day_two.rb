@@ -20,7 +20,7 @@ class DayTwo2022
       {
         A: { X: 3, Y: 6, Z: 0 },
         B: { X: 0, Y: 3, Z: 6 },
-        C: { X: 6, Y: 0, Z: 3 }
+        C: { X: 6, Y: 0, Z: 3 },
       }[left.to_sym][right.to_sym]
     end
 
@@ -34,7 +34,7 @@ class DayTwo2022
       {
         Y: { A: 1, B: 2, C: 3 },
         Z: { A: 2, B: 3, C: 1 },
-        X: { A: 3, B: 1, C: 2 }
+        X: { A: 3, B: 1, C: 2 },
       }[right.to_sym][left.to_sym]
     end
   end
