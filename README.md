@@ -13,7 +13,7 @@
 ## Solutions for the AoC 2020
 
 - [X] [Day 1](https://adventofcode.com/2020/day/1)
-- [ ] [Day 2](https://adventofcode.com/2020/day/2)
+- [X] [Day 2](https://adventofcode.com/2020/day/2)
 
 ## Solutions for the AoC 2019
 
