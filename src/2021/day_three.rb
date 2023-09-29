@@ -21,7 +21,9 @@ class DayThree2021
       return numbers.first if numbers.size == 1
 
       most_common = most_common(numbers)
-      valid_numbers = numbers.filter { |number| callback.call(number[start].to_i, most_common[start]) }
+      valid_numbers = numbers.filter do |number|
+        callback.call(number[start].to_i, most_common[start])
+      end
       find_number(valid_numbers, start + 1, callback)
     end
 
