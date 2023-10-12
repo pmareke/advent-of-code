@@ -1,0 +1,10 @@
+{
+  "src/**/day_*.rb": {
+    "type": "source",
+    "alternate": "test/{dirname}/test_day_{basename}.rb"
+  },
+  "test/**/test_day_*.rb": {
+    "type": "test",
+    "alternate": "src/{dirname}/day_{basename}.rb"
+  }
+}
