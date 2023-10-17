@@ -32,7 +32,7 @@ class DayFive2022
         %w[P G H C M],
         %w[F J B G L Z H C],
         %w[S J R],
-        %w[L G S R B N V M]
+        %w[L G S R B N V M],
       ]
     end
 

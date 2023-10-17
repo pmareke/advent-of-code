@@ -12,6 +12,8 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
 Style/TrailingCommaInHashLiteral:
   Enabled: false
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
 Metrics/MethodLength:
   Enabled: false
 Metrics/AbcSize:
