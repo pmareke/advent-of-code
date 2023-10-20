@@ -42,6 +42,7 @@
 ## Solutions for the AoC 2016
 
 - [X] [Day 1](https://adventofcode.com/2016/day/1)
+- [X] [Day 2](https://adventofcode.com/2016/day/2)
 
 ## Solutions for the AoC 2015
 
