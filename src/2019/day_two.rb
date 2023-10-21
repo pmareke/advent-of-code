@@ -4,19 +4,15 @@ class DayTwo2019
   def self.part_one(numbers)
     noun = 12
     verb = 2
-    numbers[1] = noun
-    numbers[2] = verb
-    run(numbers)
+    program = [numbers.first, noun, verb, *numbers[3..]]
+    run(program)
   end
 
   def self.part_two(numbers)
     99.times do |noun|
       99.times do |verb|
-        numbers_copy = numbers.clone
-        numbers_copy[1] = noun
-        numbers_copy[2] = verb
-        result = run(numbers_copy)
-
+        program = [numbers.first, noun, verb, *numbers[3..]]
+        result = run(program)
         return (100 * noun) + verb if result == 19_690_720
       end
     end
