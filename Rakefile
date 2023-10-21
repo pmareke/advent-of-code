@@ -2,7 +2,7 @@ task default: %w[test]
 
 desc "Run tests"
 task :test do
-  ruby "test/test_suite.rb"
+  ruby "main.rb"
 end
 
 desc "Add Git hooks"
