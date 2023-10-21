@@ -4,23 +4,27 @@ class DayTwo2019
   def self.part_one(numbers)
     noun = 12
     verb = 2
-    run(numbers, noun, verb)
+    numbers[1] = noun
+    numbers[2] = verb
+    run(numbers)
   end
 
   def self.part_two(numbers)
     99.times do |noun|
       99.times do |verb|
-        result = run(numbers.clone, noun, verb)
+        numbers_copy = numbers.clone
+        numbers_copy[1] = noun
+        numbers_copy[2] = verb
+        result = run(numbers_copy)
+
         return (100 * noun) + verb if result == 19_690_720
       end
     end
   end
 
   class << self
-    def run(numbers, noun, verb)
+    def run(numbers)
       pointer = 0
-      numbers[1] = noun
-      numbers[2] = verb
       loop do
         operation = numbers[pointer]
         case operation
