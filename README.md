@@ -37,7 +37,8 @@
 - [X] [Day 1](https://adventofcode.com/2018/day/1)
 - [X] [Day 2](https://adventofcode.com/2018/day/2)
 - [X] [Day 3](https://adventofcode.com/2018/day/3)
-- [] [Day 4](https://adventofcode.com/2018/day/4)
+- [X] [Day 4](https://adventofcode.com/2018/day/4)
+- [X] [Day 5](https://adventofcode.com/2018/day/5)
 
 ## Solutions for the AoC 2017
 
