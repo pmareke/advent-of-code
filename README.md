@@ -1,5 +1,9 @@
 # Advent of Code ![status](https://github.com/pmareke/ruby-advent-of-code/actions/workflows/test.yml/badge.svg)
 
+## Solutions for the AoC 2023
+
+- [ ] [Day 1](https://adventofcode.com/2023/day/1)
+
 ## Solutions for the AoC 2022
 
 - [X] [Day 1](https://adventofcode.com/2022/day/1)
