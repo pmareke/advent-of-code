@@ -6,7 +6,7 @@ require "minitest/autorun"
 class TestDayOne2023 < Minitest::Test
   def setup
     lines = File.open("inputs/2023/day_one.in")
-    @input = lines.readlines
+    @input = lines.readlines.map(&:strip)
   end
 
   def test_part_one
