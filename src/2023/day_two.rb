@@ -12,7 +12,7 @@ class DayTwo2023
 
   def self.part_two(games)
     games.sum do |game|
-      _, plays = game.split(": ").flatten
+      plays = game.split(": ").last
       cubes = plays.scan(/(\d+) (\w+)/)
       calculate_power(cubes)
     end
