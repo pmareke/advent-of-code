@@ -17,10 +17,9 @@ class DayTwo2023
   end
 
   class << self
-    RULES = { red: 12, green: 13, blue: 14 }.freeze
-
     def valid?(cubes)
-      cubes.all? { |value, color| value.to_i <= RULES[color.to_sym] }
+      rules = { red: 12, green: 13, blue: 14 }.freeze
+      cubes.all? { |value, color| value.to_i <= rules[color.to_sym] }
     end
 
     def calculate_power(cubes)
