@@ -3,9 +3,9 @@
 class DayTwo2023
   def self.part_one(games)
     games.sum do |game|
-      id = game.scan(/\d+/).map(&:to_i).first
+      id = game.scan(/\d+/).first
       cubes = game.scan(/(\d+) (\w+)/)
-      valid?(cubes) ? id : 0
+      valid?(cubes) ? id.to_i : 0
     end
   end
 
