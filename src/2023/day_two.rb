@@ -3,17 +3,15 @@
 class DayTwo2023
   def self.part_one(games)
     games.sum do |game|
-      id, plays = game.split(": ").flatten
-      id = id.scan(/\d+/).map(&:to_i).first
-      cubes = plays.scan(/(\d+) (\w+)/)
+      id = game.scan(/\d+/).map(&:to_i).first
+      cubes = game.scan(/(\d+) (\w+)/)
       valid?(cubes) ? id : 0
     end
   end
 
   def self.part_two(games)
     games.sum do |game|
-      plays = game.split(": ").last
-      cubes = plays.scan(/(\d+) (\w+)/)
+      cubes = game.scan(/(\d+) (\w+)/)
       calculate_power(cubes)
     end
   end
