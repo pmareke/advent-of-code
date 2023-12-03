@@ -35,9 +35,7 @@ class DayThree2023
         numbers = line.scan(/(?:\d+|.)/)
         matrix << numbers.each_with_object([]) do |number, row|
           number.length.times { |_| row << number }
-          row
         end
-        matrix
       end
     end
 
@@ -47,7 +45,6 @@ class DayThree2023
         positions.each do |y|
           acc << engine[idx + x][idy + y].to_i
         end
-        acc
       end
       Set.new(neighbords).reject(&:zero?)
     end
