@@ -9,7 +9,7 @@ class DayThree2023
       row.each_with_index do |item, idy|
         next if item.scan(/(?:\d|\.)/).first
 
-        neighbords = find_neigbords(engine, idx, idy)
+        neighbords = find_neighbors(engine, idx, idy)
         acc += neighbords.sum
       end
       acc
@@ -22,7 +22,7 @@ class DayThree2023
       row.each_with_index do |item, idy|
         next if item.scan(/(?:\d|\.)/).first
 
-        neighbords = find_neigbords(engine, idx, idy)
+        neighbords = find_neighbors(engine, idx, idy)
         acc += neighbords.reduce(&:*) if neighbords.size == 2
       end
       acc
@@ -41,7 +41,7 @@ class DayThree2023
       end
     end
 
-    def find_neigbords(engine, idx, idy)
+    def find_neighbors(engine, idx, idy)
       positions = [0, 1, 0, -1].freeze
       neighbords = positions.each_with_object([]) do |x, acc|
         positions.each do |y|
