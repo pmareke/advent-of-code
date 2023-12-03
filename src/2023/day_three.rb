@@ -34,7 +34,14 @@ class DayThree2023
       lines.each_with_object([]) do |line, matrix|
         numbers = line.scan(/(?:\d+|.)/)
         matrix << numbers.each_with_object([]) do |number, row|
-          number.length.times { |_| row << number }
+          # In order to have the same number of elements per row
+          # We need to insert the number as many times as its length, ex:
+          # "." -> ["."]
+          # "12" -> ["12", "12"]
+          # "634" -> ["634", "634", "634"]
+          # Later when we'll check the neighbords we will exclude the duplications
+          repetead_number = [number] * number.length
+          row.push(*repetead_number)
         end
       end
     end
