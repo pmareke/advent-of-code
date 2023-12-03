@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "../../src/2021/day_six"
-require "minitest/autorun"
 
 class TestDaySix2021 < Minitest::Test
   def setup
