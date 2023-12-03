@@ -50,10 +50,13 @@ class DayThree2023
       positions = [0, 1, -1].freeze
       neighbords = positions.each_with_object([]) do |x, acc|
         positions.each do |y|
-          acc << engine[idx + x][idy + y].to_i
+          number = engine[idx + x][idy + y]
+          next unless number =~ /\d/
+
+          acc << number
         end
       end
-      Set.new(neighbords).reject(&:zero?)
+      Set.new(neighbords.map(&:to_i))
     end
   end
 end
