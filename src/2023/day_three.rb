@@ -40,7 +40,7 @@ class DayThree2023
     end
 
     def find_neighbors(engine, idx, idy)
-      positions = [0, 1, 0, -1].freeze
+      positions = [0, 1, -1].freeze
       neighbords = positions.each_with_object([]) do |x, acc|
         positions.each do |y|
           acc << engine[idx + x][idy + y].to_i
