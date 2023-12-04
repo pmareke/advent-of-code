@@ -9,13 +9,13 @@ class DayFour2023
   end
 
   def self.part_two(lines)
-    cards = lines.each_with_object({}) do |line, acc|
+    cards_with_winners = lines.each_with_object({}) do |line, acc|
       id, *numbers = line.scan(/(?:\d+)/)
       winners = numbers.tally.values.count { |value| value == 2 }
       acc[id] = winners
     end
 
-    results = cards.each_with_object({}) do |(key, value), acc|
+    cards = cards_with_winners.each_with_object({}) do |(key, value), acc|
       start = key.to_i
       finish = start + value
       acc[start] = []
@@ -23,8 +23,8 @@ class DayFour2023
       acc
     end
 
-    results.values.flatten.tally.keys.each_with_object(Hash.new(0)) do |key, acc|
-      results[key].each { |card| acc[card] += key == card ? 1 : acc[key] }
+    cards.values.flatten.tally.keys.each_with_object(Hash.new(0)) do |key, acc|
+      cards[key].each { |card| acc[card] += key == card ? 1 : acc[key] }
       acc
     end.values.sum
   end
