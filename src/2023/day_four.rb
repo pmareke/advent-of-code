@@ -26,7 +26,7 @@ class DayFour2023
     end
 
     results.values.flatten.tally.keys.each_with_object(Hash.new(0)) do |key, acc|
-      results[key].each { |x| acc[x] += key == x ? 1 : acc[key] }
+      results[key].each { |card| acc[card] += key == card ? 1 : acc[key] }
       acc
     end.values.sum
   end
