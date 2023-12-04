@@ -2,10 +2,9 @@
 
 class DayFour2023
   def self.part_one(lines)
-    lines.reduce(0) do |acc, line|
+    lines.sum do |line|
       winners = line.scan(/(?:\d+)/)[1..].tally.count { |_, value| value == 2 }
-      points = winners.zero? ? 0 : (2**winners.pred)
-      acc + points
+      winners.zero? ? 0 : (2**(winners - 1))
     end
   end
 
@@ -14,7 +13,6 @@ class DayFour2023
       id, *numbers = line.scan(/(?:\d+)/)
       winners = numbers.tally.values.count { |value| value == 2 }
       acc[id] = winners
-      acc
     end
 
     results = cards.each_with_object({}) do |(key, value), acc|
