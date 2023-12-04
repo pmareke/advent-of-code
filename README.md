@@ -58,6 +58,7 @@
 - [X] [Day 3](https://adventofcode.com/2017/day/3)
 - [X] [Day 4](https://adventofcode.com/2017/day/4)
 - [X] [Day 5](https://adventofcode.com/2017/day/5)
+- [X] [Day 6](https://adventofcode.com/2017/day/6)
 
 ## Solutions for the AoC 2016
 
