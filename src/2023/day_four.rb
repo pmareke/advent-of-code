@@ -4,7 +4,7 @@ class DayFour2023
   def self.part_one(lines)
     lines.sum do |line|
       winners = line.scan(/(?:\d+)/)[1..].tally.values.count { |value| value == 2 }
-      winners.zero? ? 0 : (2**(winners - 1))
+      winners.zero? ? 0 : 2 ** winners.pred
     end
   end
 
