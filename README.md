@@ -6,6 +6,7 @@
 - [X] [Day 2](https://adventofcode.com/2023/day/2)
 - [X] [Day 3](https://adventofcode.com/2023/day/3)
 - [X] [Day 4](https://adventofcode.com/2023/day/4)
+- [X] [Day 5](https://adventofcode.com/2023/day/5)
 
 ## Solutions for the AoC 2022
 
