@@ -54,17 +54,21 @@ class DayFive2023
         new_ranges = []
         until range.empty?
           range_start, range_end = range.pop
-          before = [range_start, [range_end, source].min]
-          inter = [[range_start, source].max, [new_source, range_end].min]
-          after = [[new_source, range_start].max, range_end]
 
+          before = [range_start, [range_end, source].min]
           new_ranges.append(before) if before[1] > before.first
-          ranges.append([inter.first - source + destination, inter[1] - source + destination]) if inter[1] > inter.first
+
+          jump = destination - source
+          inter = [[range_start, source].max, [new_source, range_end].min]
+          new_point = [inter.first + jump, inter[1] + jump]
+          ranges.append(new_point) if inter[1] > inter.first
+
+          after = [[new_source, range_start].max, range_end]
           new_ranges.append(after) if after[1] > after.first
         end
         range = new_ranges
       end
-      ranges + range
+      ranges.concat(range)
     end
   end
 end
