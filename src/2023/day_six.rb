@@ -15,7 +15,7 @@ class DaySix2023
 
   class << self
     def play(time, record)
-      (0..time).count do |millimeters_per_millisecond|
+      time.times.count do |millimeters_per_millisecond|
         movement_time = time - millimeters_per_millisecond
         distance = movement_time * millimeters_per_millisecond
         record < distance
