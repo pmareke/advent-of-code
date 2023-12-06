@@ -8,6 +8,8 @@ class DaySix2023
 
   def self.part_two(lines)
     race = lines.reduce([]) { |acc, line| acc << line.scan(/(?:\d+)/).join.to_i }
+    # The solution for the first part works also for this one but it takes 2.7s
+    # play(*race)
     play_with_formula(*race)
   end
 
