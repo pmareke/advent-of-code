@@ -1,26 +1,13 @@
 # frozen_string_literal: true
 
-Race = Data.define(:time, :distance)
-
 class DaySix2023
   def self.part_one(lines)
-    races = lines.each_with_object([]) do |line, acc|
-      points = line.scan(/(?:\d+)/).map(&:to_i)
-      acc << points
-    end.transpose
-
-    wins = races.each_with_object([]) do |race, acc|
-      acc << play(*race)
-    end
-    
-    wins.reduce(&:*)
+    races = lines.reduce([]) { |acc, line| acc << line.scan(/(?:\d+)/).map(&:to_i) }.transpose
+    races.reduce([]) { |acc, race| acc << play(*race) }.reduce(&:*)
   end
 
   def self.part_two(lines)
-    race = lines.each_with_object([]) do |line, acc|
-      points = line.scan(/(?:\d+)/)
-      acc << points.join.to_i
-    end
+    race = lines.reduce([]) { |acc, line| acc << line.scan(/(?:\d+)/).join.to_i }
     play(*race)
   end
 
