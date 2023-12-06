@@ -23,11 +23,17 @@ class DaySix2023
     end
 
     def play_with_formula(time, distance)
-      # [Diophantine equation](https://en.wikipedia.org/wiki/Diophantine_equation)
-      discriminant = Math.sqrt((time ** 2) - (4 * distance))
-      x = (time + discriminant) / 2
-      y = (time - discriminant) / 2
-      x.floor - y.ceil + 1
+      # Quadratic equation
+      # x * (time - x) = distance
+      # -x^2 + time*x - distance = 0
+      # x = (-time +- sqrt(time^2 - 4*a*distance)) / 2a
+      a = -1
+
+      x = (-time + Math.sqrt((time ** 2) + (4 * a * distance))) / (2 * a)
+
+      min_losing_time = x.ceil - 1
+      total_losing_times = (min_losing_time * 2) + 1
+      time - total_losing_times
     end
   end
 end
