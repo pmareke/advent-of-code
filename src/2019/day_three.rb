@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "set"
-
 class DayThree2019
   def self.part_one(wires)
     wire = walk_part_one wires.first

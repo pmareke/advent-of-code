@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "set"
-
 class DaySix2019
   def self.part_one(lines)
     map = create_map(lines)

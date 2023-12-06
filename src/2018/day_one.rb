@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "set"
-
 class DayOne2018
   def self.part_one(numbers)
     numbers.map(&:to_i).sum

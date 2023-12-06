@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "set"
-
 class DaySix2017
   def self.part_one(line)
     blocks = line.scan(/(?:\d+)/).map(&:to_i)

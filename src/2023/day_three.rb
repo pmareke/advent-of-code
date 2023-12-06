@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "set"
-
 class DayThree2023
   def self.part_one(lines)
     engine = generate_engine(lines)

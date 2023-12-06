@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "set"
-
 class DayThree2015
   def self.part_one(instructions)
     point_x = point_y = 0

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "set"
-
 class DayFive2023
   def self.part_one(lines)
     parts = lines.split("\n\n")

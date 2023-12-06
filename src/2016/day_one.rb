@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "set"
-
 class DayOne2016
   def self.part_one(coordinates)
     dx = [0, 1, 0, -1]
