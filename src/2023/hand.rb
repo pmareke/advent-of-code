@@ -17,7 +17,6 @@ class Hand
     @cards = cards
     @bid = bid.to_i
     @type = part_two ? find_hand_type_part_two : find_hand_type
-
     @cards_strength = part_two ? %w[A K Q T 9 8 7 6 5 4 3 2 J] : %w[A K Q J T 9 8 7 6 5 4 3 2]
   end
 
