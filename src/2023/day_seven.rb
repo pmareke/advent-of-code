@@ -35,20 +35,16 @@ class DaySeven2023
 
     def find_hand_type(cards)
       group_by_letter = cards.tally
-
-      return HandType::FIVE_OF_A_KIND if cards.uniq.size == 1
-
-      return HandType::ONE_PAIR if cards.uniq.size == 4
-
-      return HandType::HIGH_CARD if cards.uniq.size == cards.size
-
-      return HandType::FULL_HOUSE if group_by_letter.values.sort == [2, 3]
-
-      return HandType::FOUR_OF_A_KIND if group_by_letter.values.sort == [1, 4]
-
-      return HandType::TWO_PAIR if group_by_letter.values.sort == [1, 2, 2]
-
-      HandType::THREE_OF_A_KIND if group_by_letter.values.sort == [1, 1, 3]
+      repetitions = group_by_letter.values.sort
+      {
+        [5] => HandType::FIVE_OF_A_KIND,
+        [1, 4] => HandType::FOUR_OF_A_KIND,
+        [2, 3] => HandType::FULL_HOUSE,
+        [1, 1, 3] => HandType::THREE_OF_A_KIND,
+        [1, 2, 2] => HandType::TWO_PAIR,
+        [1, 1, 1, 2] => HandType::ONE_PAIR,
+        [1, 1, 1, 1, 1] => HandType::HIGH_CARD,
+      }[repetitions]
     end
 
     def find_hand_type_part_two(cards)
