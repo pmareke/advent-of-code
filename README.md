@@ -8,7 +8,7 @@
 - [X] [Day 4](https://adventofcode.com/2023/day/4)
 - [X] [Day 5](https://adventofcode.com/2023/day/5)
 - [X] [Day 6](https://adventofcode.com/2023/day/6)
-- [ ] [Day 7](https://adventofcode.com/2023/day/7)
+- [X] [Day 7](https://adventofcode.com/2023/day/7)
 
 ## Solutions for the AoC 2022
 
