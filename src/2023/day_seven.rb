@@ -18,7 +18,7 @@ class DaySeven2023
         acc << Hand.new(cards.chars, bid, part_two:)
       end
 
-      hands.sort.each_with_index.reduce([]) { |acc, (hand, index)| acc << (hand.bid * index.next) }.reduce(&:+)
+      hands.sort.each_with_index.sum { |hand, index| hand.bid * index.next }
     end
   end
 end
