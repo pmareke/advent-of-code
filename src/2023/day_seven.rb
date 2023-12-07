@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "hand"
+require_relative "models/hand"
 
 class DaySeven2023
   def self.part_one(lines)
