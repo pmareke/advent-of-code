@@ -21,8 +21,6 @@ class Hand
   end
 
   def find_hand_type
-    group_by_letter = @cards.tally
-    repetitions = group_by_letter.values.sort
     {
       [5] => HandType::FIVE_OF_A_KIND,
       [1, 4] => HandType::FOUR_OF_A_KIND,
@@ -31,7 +29,7 @@ class Hand
       [1, 2, 2] => HandType::TWO_PAIR,
       [1, 1, 1, 2] => HandType::ONE_PAIR,
       [1, 1, 1, 1, 1] => HandType::HIGH_CARD,
-    }[repetitions]
+    }[@cards.tally.values.sort]
   end
 
   def find_hand_type_part_two
