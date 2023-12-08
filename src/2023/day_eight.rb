@@ -8,8 +8,7 @@ class DayEight2023
     steps = 0
     instructions.chars.cycle do |instruction|
       steps += 1
-      index = instruction == "L" ? 0 : 1
-      next_point = nodes[next_point][index]
+      next_point = nodes[next_point][instruction]
 
       return steps if next_point == "ZZZ"
     end
@@ -23,8 +22,7 @@ class DayEight2023
       steps = 0
       instructions.chars.cycle do |instruction|
         steps += 1
-        index = instruction == "L" ? 0 : 1
-        next_point = nodes[next_point][index]
+        next_point = nodes[next_point][instruction]
 
         if next_point.end_with? "Z"
           acc << steps
@@ -32,6 +30,10 @@ class DayEight2023
         end
       end
     end
+
+    # Trying to find the number of steps in which all the nodes at the same time end in "Z"
+    # would take ages, instead we need to find how many steps will take each node started in "A" separately
+    # and then calculate the [Less Common Multiplea](https://en.wikipedia.org/wiki/Least_common_multiple)
     total_steps.reduce(1, :lcm)
   end
 
@@ -39,7 +41,7 @@ class DayEight2023
     def create_nodes(relations)
       relations.first.split("\n").each_with_object({}) do |relation, acc|
         point, left, right = relation.scan(/(?:\w+)/)
-        acc[point] = [left, right]
+        acc[point] = { "L" => left, "R" => right }
       end
     end
   end
