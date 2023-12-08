@@ -28,7 +28,7 @@ class DayEight2023
 
         if next_point.end_with? "Z"
           acc << steps
-          break # We need to get out of the cycle!
+          break # We need to get out of the cycle, but keep in the next_points loop!
         end
       end
     end
