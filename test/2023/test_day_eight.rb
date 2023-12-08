@@ -5,19 +5,18 @@ require "minitest/autorun"
 
 class TestDayEight2023 < Minitest::Test
   def setup
-    lines = File.open("inputs/2023/day_eight.in")
-    @input = lines.readlines.map(&:strip)
+    @lines = File.read("inputs/2023/day_eight.in")
   end
 
   def test_part_one
-    result = DayEight2023.part_one(@input)
+    result = DayEight2023.part_one(@lines)
 
-    assert_equal 0, result
+    assert_equal 16_343, result
   end
 
   def test_part_two
-    result = DayEight2023.part_two(@input)
+    result = DayEight2023.part_two(@lines)
 
-    assert_equal 0, result
+    assert_equal 15_299_095_336_639, result
   end
 end
