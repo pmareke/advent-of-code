@@ -5,11 +5,10 @@ class DayNine2023
     lines.sum do |line|
       digits = line.split.map(&:to_i)
       numbers = prediction([digits])
-      numbers[1..].reverse.each_cons(2) do |(x, y)|
+      numbers.reverse.each_cons(2) do |(x, y)|
         y.push(y.last + x.last)
       end
-      next_digit = numbers[1].last
-      digits.last + next_digit
+      numbers.first.last
     end
   end
 
@@ -17,11 +16,10 @@ class DayNine2023
     lines.sum do |line|
       digits = line.split.map(&:to_i)
       numbers = prediction([digits])
-      numbers[1..].reverse.each_cons(2) do |(x, y)|
+      numbers.reverse.each_cons(2) do |(x, y)|
         y.unshift(y.first - x.first)
       end
-      next_digit = numbers[1].first
-      digits.first - next_digit
+      numbers.first.first
     end
   end
 
