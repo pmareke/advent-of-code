@@ -49,17 +49,17 @@ class DayTen2023
           x = idx
           y = last_point[1] > idy ? idy - 1 : idy + 1
         when "L"
-          x = last_point.first == idx ? idx - 1: idx
-          y = last_point.first == idx ? idy: idy + 1
+          x = last_point.first == idx ? idx - 1 : idx
+          y = last_point.first == idx ? idy : idy + 1
         when "F"
-          x = last_point.first == idx ? idx + 1: idx
-          y = last_point.first == idx ? idy: idy + 1
+          x = last_point.first == idx ? idx + 1 : idx
+          y = last_point.first == idx ? idy : idy + 1
         when "J"
-          x = last_point.first == idx ? idx - 1: idx
-          y = last_point.first == idx ? idy: idy - 1
+          x = last_point.first == idx ? idx - 1 : idx
+          y = last_point.first == idx ? idy : idy - 1
         when "7"
-          x = last_point.first == idx ? idx + 1: idx
-          y = last_point.first == idx ? idy: idy - 1
+          x = last_point.first == idx ? idx + 1 : idx
+          y = last_point.first == idx ? idy : idy - 1
         end
         last_point = [idx, idy]
         point = [x, y]
@@ -72,8 +72,8 @@ class DayTen2023
       [1, 0, -1].each_with_object([]) do |idx, acc|
         [1, 0, -1].each do |idy|
           next if idx.abs == idy.abs
-          next if  (starting_point.first + idx).negative?
-          next if  (starting_point[1] + idy).negative?
+          next if (starting_point.first + idx).negative?
+          next if (starting_point[1] + idy).negative?
 
           symbol = maze[starting_point.first + idx][starting_point[1] + idy]
           next if symbol == "."
