@@ -12,17 +12,15 @@ class DayEleven2023
   class << self
     def solve(lines, coeficient:)
       galaxies, vertical_expansion, horizontal_expansion = create_universe(lines)
-      galaxies.combination(2).sum do |galaxy, another_galaxy|
-        distance = (another_galaxy.first - galaxy.first).abs + (another_galaxy[1] - galaxy[1]).abs
+      galaxies.combination(2).sum do |(x1, y1), (x2, y2)|
+        distance = (x2 - x1).abs + (y2 - y1).abs
         vertical_expansion.each do |expansion|
-          if (galaxy.first < expansion && another_galaxy.first > expansion) ||(another_galaxy.first < expansion && galaxy.first > expansion) # rubocop:disable Layout/LineLength
-            distance += coeficient
-          end
+          min, max = [x1, x2].minmax
+          distance += coeficient if (min..max).cover? expansion
         end
         horizontal_expansion.each do |expansion|
-          if (galaxy[1] < expansion && another_galaxy[1] > expansion) || (another_galaxy[1] < expansion && galaxy[1] > expansion) # rubocop:disable Layout/LineLength
-            distance += coeficient
-          end
+          min, max = [y1, y2].minmax
+          distance += coeficient if (min..max).cover? expansion
         end
         distance
       end
