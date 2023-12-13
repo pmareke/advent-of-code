@@ -4,14 +4,18 @@ class DayThirteen2023
   def self.part_one(lines)
     lines.split("\n\n").sum do |line|
       grid = line.split("\n").map(&:chars)
-      calculate_vertical(grid.transpose) + (calculate_vertical(grid) * 100)
+      vertical = calculate_vertical(grid.transpose)
+      horozontal = calculate_vertical(grid) * 100
+      vertical + horozontal
     end
   end
 
   def self.part_two(lines)
     lines.split("\n\n").sum do |line|
       grid = line.split("\n").map(&:chars)
-      calculate_vertical(grid.transpose, required_smudges: 1) + (calculate_vertical(grid, required_smudges: 1) * 100)
+      vertical = calculate_vertical(grid.transpose, required_smudges: 1)
+      horozontal = calculate_vertical(grid, required_smudges: 1) * 100
+      vertical + horozontal
     end
   end
 
