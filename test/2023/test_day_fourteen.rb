@@ -6,13 +6,13 @@ require "minitest/autorun"
 class TestDayFourteen2023 < Minitest::Test
   def setup
     file = "inputs/2023/day_fourteen.in"
-    @lines = File.read(file)
+    @lines = File.open(file).readlines.map(&:strip)
   end
 
   def test_part_one
     result = DayFourteen2023.part_one(@lines)
 
-    assert_equal 0, result
+    assert_equal 110_274, result
   end
 
   def test_part_two
