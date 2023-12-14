@@ -28,7 +28,7 @@ class DayThirteen2023
         down = up + 1
         mirror = true
         smudges = 0
-        while up >= 0 && down <= size
+        until up.negative? || down > size
           smudges += count_smudges(grid[up], grid[down])
           if smudges > required_smudges
             mirror = false
@@ -38,15 +38,16 @@ class DayThirteen2023
           down += 1
         end
 
-        next unless mirror && smudges == required_smudges
+        next unless mirror
+        next unless smudges == required_smudges
 
         reflexion_line = middle
       end
       reflexion_line.next
     end
 
-    def count_smudges(row1, row2)
-      row1.zip(row2).count { |e1, e2| e1 != e2 }
+    def count_smudges(mirror, another_mirror)
+      mirror.zip(another_mirror).count { |x, y| x != y }
     end
   end
 end
