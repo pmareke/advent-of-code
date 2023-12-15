@@ -12,23 +12,23 @@ class DayFifteen2023
         box = calculate_hash(label)
         next unless acc[box]
 
-        to_remove = acc[box].find { |len| len.include? label }
-        next unless to_remove
+        box_to_override = acc[box].find { |len| len.include? label }
+        next unless box_to_override
 
-        acc[box].delete(to_remove)
+        acc[box].delete(box_to_override)
         next
       end
 
       label, focus = step.split("=")
       box = calculate_hash(label)
       acc[box] = [] if acc[box].nil?
-      to_override = acc[box].find { |len| len.include? label }
-      unless to_override
-        acc[box] << "#{label} #{focus}"
+      box_to_override = acc[box].find { |len| len.include? label }
+      if box_to_override
+        index = acc[box].find_index(box_to_override)
+        acc[box][index] = "#{label} #{focus}"
         next
       end
-      index = acc[box].find_index(to_override)
-      acc[box][index] = "#{label} #{focus}"
+      acc[box] << "#{label} #{focus}"
     end
 
     boxes.sum do |box_id, lens|
