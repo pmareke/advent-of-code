@@ -6,34 +6,17 @@ class DayFifteen2023
   end
 
   def self.part_two(lines)
-    boxes = lines.first.split(",").each_with_object({}) do |step, acc|
-      if step.include? "-"
-        label = step.split("-").first
-        box = calculate_hash(label)
-        next unless acc[box]
-
-        box_to_override = acc[box].find { |len| len.include? label }
-        next unless box_to_override
-
-        acc[box].delete(box_to_override)
-        next
-      end
-
-      label, focus = step.split("=")
+    boxes = Hash.new { |hsh, key| hsh[key] = {} }
+    lines.first.split(",").each_with_object(boxes) do |step, acc|
+      label, sign, focus = step.split(/([=|-])/)
       box = calculate_hash(label)
-      acc[box] = [] if acc[box].nil?
-      box_to_override = acc[box].find { |len| len.include? label }
-      if box_to_override
-        index = acc[box].find_index(box_to_override)
-        acc[box][index] = "#{label} #{focus}"
-        next
-      end
-      acc[box] << "#{label} #{focus}"
+      acc[box].delete(label) if sign == "-"
+      acc[box][label] = focus.to_i if sign == "="
     end
 
     boxes.sum do |box_id, lens|
-      lens.each_with_index.sum do |len, index|
-        ((box_id + 1) * (index + 1)) * len.split.last.to_i
+      lens.values.each_with_index.sum do |value, index|
+        ((box_id + 1) * (index + 1)) * value
       end
     end
   end
