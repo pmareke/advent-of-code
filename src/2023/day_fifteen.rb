@@ -6,7 +6,7 @@ class DayFifteen2023
   end
 
   def self.part_two(lines)
-    boxes = Hash.new { |hsh, key| hsh[key] = {} }
+    boxes = Hash.new { |hash, key| hash[key] = {} }
     lines.first.split(",").each_with_object(boxes) do |step, acc|
       label, sign, focus = step.split(/([=|-])/)
       box = calculate_hash(label)
