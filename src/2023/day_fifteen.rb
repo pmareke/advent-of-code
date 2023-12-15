@@ -16,7 +16,7 @@ class DayFifteen2023
 
     boxes.sum do |box_id, lens|
       lens.values.each_with_index.sum do |value, index|
-        ((box_id + 1) * (index + 1)) * value
+        (box_id.next * index.next) * value
       end
     end
   end
