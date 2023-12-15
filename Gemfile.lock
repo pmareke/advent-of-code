@@ -10,6 +10,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
+    pqueue (2.1.0)
     racc (1.7.1)
     rainbow (3.1.1)
     rake (13.0.6)
@@ -43,6 +44,7 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
+  pqueue (~> 2.1)
   rake
   rubocop (~> 1.56)
   rubocop-minitest (~> 0.32.2)
