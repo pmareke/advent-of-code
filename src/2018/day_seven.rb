@@ -16,7 +16,7 @@ class DaySeven2018
 
       node.children.sort_by(&:value).each do |children|
         node.children.delete(children)
-        queue << children unless nodes.any? { |n2| n2.children.include? children }
+        queue << children unless nodes.any? { |another_node| another_node.children.include? children }
       end
     end
 
@@ -63,8 +63,8 @@ class DaySeven2018
         acc << Node.new(before) unless added.include? before
         acc << Node.new(after) unless added.include? after
 
-        before = acc.find { |n| n.value == before }
-        after = acc.find { |n| n.value == after }
+        before = acc.find { |node| node.value == before }
+        after = acc.find { |node| node.value == after }
 
         before.children << after unless before.children.include? after
       end
