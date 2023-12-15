@@ -12,12 +12,12 @@ class TestDayFifteen2023 < Minitest::Test
   def test_part_one
     result = DayFifteen2023.part_one(@lines)
 
-    assert_equal 0, result
+    assert_equal 513_643, result
   end
 
   def test_part_two
     result = DayFifteen2023.part_two(@lines)
 
-    assert_equal 0, result
+    assert_equal 265_345, result
   end
 end
