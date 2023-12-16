@@ -43,11 +43,11 @@ class DaySixteen2023
         case [beam.direction.first.abs, grid[next_point[1]][next_point.first]]
         when [1, "|"], [0, "-"]
           queue << Beam.new(next_point, [beam.direction[1].abs, beam.direction.first.abs])
-          queue << Beam.new(next_point, [beam.direction[1].abs*-1, beam.direction.first.abs*-1])
+          queue << Beam.new(next_point, [beam.direction[1].abs * -1, beam.direction.first.abs * -1])
         when [1, "\\"], [0, "\\"]
           queue << Beam.new(next_point, [beam.direction[1], beam.direction.first])
         when [1, "/"], [0, "/"]
-          queue << Beam.new(next_point, [beam.direction[1]*-1, beam.direction[0]*-1])
+          queue << Beam.new(next_point, [beam.direction[1] * -1, beam.direction[0] * -1])
         else
           queue << Beam.new(next_point, beam.direction)
         end
