@@ -26,4 +26,4 @@ task :reformat do
 end
 
 desc "Run precommit"
-task :pre_commit => [:test, :check_style, :check_format]
+task pre_commit: %i[test check_style check_format]

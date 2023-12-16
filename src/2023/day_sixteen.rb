@@ -1,82 +1,58 @@
 # frozen_string_literal: true
 
 class DaySixteen2023
+  Beam = Struct.new(:pos, :direction)
+
   def self.part_one(lines)
-    matrix = lines.each_with_object([]) do |line, acc|
-      chars = line.chars
-      acc << chars.each_with_object([]) do |c, tmp|
-        tmp << (c == "\\" ? "x" : c)
-      end
-    end
-    point = [0, 0]
-    tiles = energized(matrix, point)
-    tiles.map { |t| t[0..1] }.uniq.size
+    grid = lines.reduce([]) { |acc, line| acc << line.chars }
+    beam = Beam.new([-1, 0], [1, 0])
+    energize(grid, beam)
   end
 
   def self.part_two(lines)
-    matrix = lines.each_with_object([]) do |line, acc|
-      chars = line.chars
-      acc << chars.each_with_object([]) do |c, tmp|
-        tmp << (c == "\\" ? "x" : c)
-      end
+    grid = lines.reduce([]) { |acc, line| acc << line.chars }
+    line_size = grid.first.size
+    size = grid.size
+    energies = []
+    line_size.times.each do |x|
+      energies << energize(grid, Beam.new([x, size], [0, -1]))
+      energies << energize(grid, Beam.new([x, -1], [0, 1]))
     end
-    matrix.size.times.each_with_object([]) do |idx, acc|
-      matrix.first.size.size.times.reduce([]) do |_tmp, idy|
-        [[0, 1], [1, 0], [0, -1], [-1, 0]].each do |x, y|
-          next if x == y
+    size.times.each do |y|
+      energies << energize(grid, Beam.new([-1, y], [1, 0]))
+      energies << energize(grid, Beam.new([line_size, y], [-1, 0]))
+    end
 
-          tiles = energized(matrix, [idx, idy], [x, y], [])
-          acc <<  tiles.map { |t| t[0..1] }.uniq.size
-        end
-      end
-      acc
-    end.max
+    energies.max
   end
 
   class << self
-    def energized(matrix, point, direction = [0, 1], seen = [])
-      return seen if seen.include?([point.first, point[1], direction])
+    def energize(grid, beam)
+      visited = Set.new
+      energized = Set.new
+      queue = [beam]
+      until queue.empty?
+        beam = queue.shift
+        next if visited.include?(beam)
 
-      next_point = point.zip(direction).map(&:sum)
-      return seen if out_of_bounds(matrix, point)
+        visited << beam
+        energized << beam.pos unless out_of_bounds(grid, beam.pos)
+        next_point = beam.pos.zip(beam.direction).map(&:sum)
+        next if out_of_bounds(grid, next_point)
 
-      symbol = matrix[point.first][point[1]]
-      seen << [point.first, point[1], direction]
-
-      return energized(matrix, next_point, direction, seen) if symbol == "."
-
-      if symbol == "|"
-        return energized(matrix, next_point, direction, seen) if direction.first == 1
-        return energized(matrix, next_point, direction, seen) if direction.first == -1
-
-        variant1 = energized(matrix, [point.first + 1, point[1]], [1, 0], seen)
-        variant2 = energized(matrix, [point.first - 1, point[1]], [-1, 0], seen)
-        return Set.new([*variant1, *variant2]).to_a
+        case [beam.direction.first.abs, grid[next_point[1]][next_point.first]]
+        when [1, "|"], [0, "-"]
+          queue << Beam.new(next_point, [beam.direction[1].abs, beam.direction.first.abs])
+          queue << Beam.new(next_point, [beam.direction[1].abs*-1, beam.direction.first.abs*-1])
+        when [1, "\\"], [0, "\\"]
+          queue << Beam.new(next_point, [beam.direction[1], beam.direction.first])
+        when [1, "/"], [0, "/"]
+          queue << Beam.new(next_point, [beam.direction[1]*-1, beam.direction[0]*-1])
+        else
+          queue << Beam.new(next_point, beam.direction)
+        end
       end
-
-      if symbol == "-"
-        return energized(matrix, next_point, direction, seen) if direction[1] == 1
-        return energized(matrix, next_point, direction, seen) if direction[1] == -1
-
-        variant1 = energized(matrix, [point.first, point[1] + 1], [0, 1], seen)
-        variant2 = energized(matrix, [point.first, point[1] - 1], [0, -1], seen)
-        return Set.new([*variant1, *variant2]).to_a
-      end
-
-      if symbol == "/"
-        return energized(matrix, [point.first, point[1] - 1], [0, -1], seen) if direction.first == 1
-        return energized(matrix, [point.first, point[1] + 1], [0, 1], seen) if direction.first == -1
-        return energized(matrix, [point.first - 1, point[1]], [-1, 0], seen) if direction[1] == 1
-        return energized(matrix, [point.first + 1, point[1]], [1, 0], seen) if direction[1] == -1
-      end
-
-      return unless symbol == "x"
-
-      return energized(matrix, [point.first, point[1] + 1], [0, 1], seen) if direction.first == 1
-      return energized(matrix, [point.first, point[1] - 1], [0, -1], seen) if direction.first == -1
-      return energized(matrix, [point.first + 1, point[1]], [1, 0], seen) if direction[1] == 1
-
-      energized(matrix, [point.first - 1, point[1]], [-1, 0], seen) if direction[1] == -1
+      energized.size
     end
 
     def out_of_bounds(matrix, point)
