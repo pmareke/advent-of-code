@@ -5,7 +5,7 @@ class DaySixteen2023
 
   def self.part_one(lines)
     grid = lines.reduce([]) { |acc, line| acc << line.chars }
-    beam = Beam.new([-1, 0], [1, 0])
+    beam = Beam.new([0, 0], [0, 1])
     energize(grid, beam)
   end
 
