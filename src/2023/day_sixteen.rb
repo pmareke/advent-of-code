@@ -14,13 +14,33 @@ class DaySixteen2023
     line_size = grid.first.size
     size = grid.size
     energies = []
-    line_size.times.each do |x|
-      energies << energize(grid, Beam.new([x, size], [0, -1]))
-      energies << energize(grid, Beam.new([x, -1], [0, 1]))
+    size.times.each do |x|
+      ##############
+      # ->         #
+      # ->         #
+      # ->         #
+      ##############
+      energies << energize(grid, Beam.new([x, 0], [0, 1]))
+      ##############
+      #         <- #
+      #         <- #
+      #         <- #
+      ##############
+      energies << energize(grid, Beam.new([x, line_size], [0, -1]))
     end
-    size.times.each do |y|
-      energies << energize(grid, Beam.new([-1, y], [1, 0]))
-      energies << energize(grid, Beam.new([line_size, y], [-1, 0]))
+    line_size.times.each do |y|
+      ##############
+      #    vvvv    #
+      #            #
+      #            #
+      ##############
+      energies << energize(grid, Beam.new([0, y], [1, 0]))
+      ##############
+      #            #
+      #            #
+      #    ^^^^    #
+      ##############
+      energies << energize(grid, Beam.new([size, y], [-1, 0]))
     end
 
     energies.max

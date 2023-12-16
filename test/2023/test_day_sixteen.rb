@@ -16,7 +16,7 @@ class TestDaySixteen2023 < Minitest::Test
   end
 
   def test_part_two
-    skip("Too Slow")
+    # skip("Too Slow")
     result = DaySixteen2023.part_two(@lines)
 
     assert_equal 7330, result
