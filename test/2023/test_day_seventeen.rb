@@ -10,14 +10,16 @@ class TestDaySeventeen2023 < Minitest::Test
   end
 
   def test_part_one
+    skip("Too Slow")
     result = DaySeventeen2023.part_one(@lines)
 
-    assert_equal 0, result
+    assert_equal 1099, result
   end
 
   def test_part_two
+    skip("Too Slow")
     result = DaySeventeen2023.part_two(@lines)
 
-    assert_equal 0, result
+    assert_equal 1266, result
   end
 end

@@ -38,7 +38,7 @@ class DaySeven2018
         nodes.delete(job[0])
       end
 
-      workers.select { |_, job| job.nil? }.each do |id, _|
+      workers.select { |_, job| job.nil? }.each_key do |id|
         work_node = nodes.find do |node|
           nodes.none? { |n2| n2.children.include? node } && !workers.values.compact.map(&:first).include?(node)
         end
