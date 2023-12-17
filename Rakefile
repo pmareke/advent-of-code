@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 task default: %w[test]
 
 desc "Run tests"
