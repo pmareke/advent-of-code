@@ -33,7 +33,7 @@ class DaySeventeen2023
 
         next if seen.include?([start_x, start_y, end_x, end_y])
 
-        seen.add([start_x, start_y,  end_x, end_y])
+        seen.add([start_x, start_y, end_x, end_y])
 
         start_set = Set.new([[1, 0], [0, 1], [-1, 0], [0, -1]])
         existing_set = Set.new([[end_x, end_y], [-end_x, -end_y]])
