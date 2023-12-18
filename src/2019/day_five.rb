@@ -4,10 +4,12 @@ require_relative "models/int_code"
 
 class DayFive2019
   def self.part_one(numbers)
-    IntCode.run(numbers, 1)
+    program = IntCode.new(numbers, 1)
+    program.run
   end
 
   def self.part_two(numbers)
-    IntCode.run(numbers, 5)
+    program = IntCode.new(numbers, 5)
+    program.run
   end
 end
