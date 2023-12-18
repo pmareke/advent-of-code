@@ -5,13 +5,23 @@ class DayTen2023
     maze, starting_point = create_maze(lines)
     valid_neighbords = find_valid_neightbords(maze, starting_point)
 
-    valid_neighbords.each_with_object({}) do |(idx, idy), acc|
+    neighbords = valid_neighbords.each_with_object({}) do |(idx, idy), acc|
       acc.merge! walk_the_maze(maze, [idx, idy], starting_point, acc)
-    end.values.max
+    end
+
+    neighbords.values.max
   end
 
-  def self.part_two(_lines)
-    0
+  def self.part_two(lines)
+    maze, starting_point = create_maze(lines)
+    valid_neighbords = find_valid_neightbords(maze, starting_point)
+
+    neighbords = valid_neighbords.each_with_object({}) do |(idx, idy), acc|
+      acc.merge! walk_the_maze(maze, [idx, idy], starting_point, acc)
+    end
+
+    points = neighbords.keys
+    calculate_interior_points([points.last, *points], points.size)
   end
 
   class << self
@@ -85,6 +95,14 @@ class DayTen2023
           acc << neighbord if neighbord[1] < starting_point[1] && ["-", "F", "L"].include?(symbol)
         end
       end
+    end
+
+    def calculate_interior_points(interior, exterior)
+      calculate_polygon_area(interior) - (0.5 * exterior) + 1
+    end
+
+    def calculate_polygon_area(vertices)
+      (0.5 * vertices.each_cons(2).sum { |x, y| (x.first * y[1]) - (x[1] * y.first) }.abs).to_i
     end
   end
 end

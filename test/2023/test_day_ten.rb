@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative "../../src/2023/day_ten"
+require "minitest/pride"
+require "minitest/autorun"
 
 class TestDayTen2023 < Minitest::Test
   def setup
@@ -17,6 +19,6 @@ class TestDayTen2023 < Minitest::Test
   def test_part_two
     result = DayTen2023.part_two(@lines)
 
-    assert_equal 0, result
+    assert_equal 383, result
   end
 end
