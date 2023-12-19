@@ -19,11 +19,20 @@ class DaySeven2019
   end
 
   def self.part_two(numbers)
-    5.upto(9).to_a.permutation.reduce([]) do |_total, phases|
-      _programs = 5.times.reduce([]) do |acc, i|
+    (5..9).to_a.permutation.reduce([]) do |total, phases|
+      programs = 5.times.reduce([]) do |acc, i|
         acc << IntCode.new(numbers.clone, phases[i])
       end
-    end
-    0
+
+      previous_output = 0
+      until programs.any?(&:halted)
+        programs.each do |program|
+          program.input(previous_output)
+          output = program.run_without_halt
+          previous_output = output unless program.halted
+        end
+      end
+      total << previous_output
+    end.max
   end
 end
