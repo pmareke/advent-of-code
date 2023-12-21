@@ -50,7 +50,6 @@ class DayNineteen2023
       end
     end
     accepted_rules.sum do |state|
-      p state
       (state.x[1] - state.x[0] + 1) *
         (state.m[1] - state.m[0] + 1) *
         (state.a[1] - state.a[0] + 1) *

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require "minitest/pride"
-require "minitest/autorun"
+require_relative "test/test_helper"
 
 Dir.glob("test/*/test_day_*.rb") do |file|
   require "#{File.dirname(__FILE__)}/#{file}"
