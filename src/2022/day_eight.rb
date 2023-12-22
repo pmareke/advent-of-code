@@ -24,41 +24,28 @@ class DayEight2022
     trees = lines.reduce([]) { |acc, line| acc << line.map(&:to_i) }
     trees.each_with_index.with_object([]) do |(row, idx), acc|
       row.each_with_index do |tree, idy|
-        tmp = []
+        distances = []
         neighbords = trees[0...idx].map { |t| t[idy] }.reverse
-        indexes = neighbords.find_index { |neighbord| neighbord >= tree }
-        tmp << if indexes.nil?
-                 neighbords.size
-               else
-                 indexes + 1
-               end
+        distances << calculate_distance(neighbords, tree)
 
         neighbords = trees[idx.next..].map { |t| t[idy] }
-        indexes = neighbords.find_index { |neighbord| neighbord >= tree }
-        tmp << if indexes.nil?
-                 neighbords.size
-               else
-                 indexes + 1
-               end
+        distances << calculate_distance(neighbords, tree)
 
         neighbords = trees[idx][0...idy].reverse
-        indexes = neighbords.find_index { |neighbord| neighbord >= tree }
-        tmp << if indexes.nil?
-                 neighbords.size
-               else
-                 indexes + 1
-               end
+        distances << calculate_distance(neighbords, tree)
 
         neighbords = trees[idx][idy.next..]
-        indexes = neighbords.find_index { |neighbord| neighbord >= tree }
-        tmp << if indexes.nil?
-                 neighbords.size
-               else
-                 indexes + 1
-               end
+        distances << calculate_distance(neighbords, tree)
 
-        acc << tmp.reduce(&:*)
+        acc << distances.reduce(&:*)
       end
     end.max
+  end
+
+  class << self
+    def calculate_distance(neighbords, tree)
+      indexes = neighbords.find_index { |neighbord| neighbord >= tree }
+      indexes.nil? ? neighbords.size : indexes + 1
+    end
   end
 end
