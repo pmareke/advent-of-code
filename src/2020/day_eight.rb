@@ -12,7 +12,7 @@ class DayEight2020
 
       seen << pointer
       op, offset = line.split
-      pointer +=1
+      pointer += 1
       pointer += offset.to_i - 1 if op == "jmp"
       @acc += offset.to_i if op == "acc"
     end

@@ -3,4 +3,6 @@ set -e
 
 exec < /dev/tty
 
-rake pre_commit
+rake check_format
+rake check_style
+rake
