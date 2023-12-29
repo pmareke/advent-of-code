@@ -9,7 +9,7 @@ class DayTwo2019
     numbers = [numbers.first, noun, verb, *numbers[3..]]
     program = IntCode.new(numbers)
     program.run
-    program.numbers.first
+    program.numbers.values.first
   end
 
   def self.part_two(numbers)
@@ -18,7 +18,7 @@ class DayTwo2019
         nums = [numbers.first, noun, verb, *numbers[3..]]
         program = IntCode.new(nums)
         program.run
-        result = program.numbers.first
+        result = program.numbers.values.first
         return (100 * noun) + verb if result == 19_690_720
       end
     end

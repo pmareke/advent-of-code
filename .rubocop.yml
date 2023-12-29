@@ -16,6 +16,8 @@ Style/TrailingCommaInArrayLiteral:
   Enabled: false
 Layout/SpaceAroundOperators:
   Enabled: false
+Metrics/ClassLength:
+  Enabled: false
 Metrics/MethodLength:
   Enabled: false
 Metrics/AbcSize:

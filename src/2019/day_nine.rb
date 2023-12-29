@@ -2,14 +2,14 @@
 
 require_relative "models/int_code"
 
-class DayFive2019
+class DayNine2019
   def self.part_one(numbers)
     program = IntCode.new(numbers, 1)
-    program.run.last
+    program.run.first
   end
 
   def self.part_two(numbers)
-    program = IntCode.new(numbers, 5)
+    program = IntCode.new(numbers, 2)
     program.run.first
   end
 end

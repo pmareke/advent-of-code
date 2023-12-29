@@ -12,7 +12,7 @@ class DaySeven2019
       previous_output = 0
       programs.each do |program|
         program.input(previous_output)
-        previous_output = program.run
+        previous_output = program.run.last
       end
       total << previous_output
     end.max
@@ -28,7 +28,7 @@ class DaySeven2019
       until programs.any?(&:halted)
         programs.each do |program|
           program.input(previous_output)
-          output = program.run_without_halt
+          output = program.run_without_halt.last
           previous_output = output unless program.halted
         end
       end

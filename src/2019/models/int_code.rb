@@ -4,10 +4,14 @@ class IntCode
   attr_reader :numbers, :output, :halted
 
   def initialize(numbers, input = 0)
-    @numbers = numbers
+    @numbers = Hash.new(0)
+    numbers.each_with_index do |value, index|
+      @numbers[index] = value
+    end
     @inputs = [input]
-    @output = nil
+    @output = []
     @pointer = 0
+    @relative = 0
     @halted = false
   end
 
@@ -17,10 +21,10 @@ class IntCode
   end
 
   def run_without_halt
-    @output = nil
+    @output = []
     loop do
       execute
-      return @output if @output || @halted
+      return @output if !@output.empty? || @halted
     end
   end
 
@@ -28,35 +32,23 @@ class IntCode
     operation, modes = parse_operation
     case operation
     when 1
-      p1, p2, out = operation_with_three_parameters(modes)
-      @numbers[out] = p1 + p2
-      @pointer += 4
+      add_opcode(modes)
     when 2
-      p1, p2, out = operation_with_three_parameters(modes)
-      @numbers[out] = p1 * p2
-      @pointer += 4
+      multiply_opcode(modes)
     when 3
-      output = @numbers[@pointer + 1]
-      @numbers[output] = @inputs.shift
-      @pointer += 2
+      input_opcode(modes[0])
     when 4
-      current = @numbers[@pointer + 1]
-      @output = @numbers[current]
-      @pointer += 2
+      output_opcode(modes[0])
     when 5
-      p1, p2 = operation_with_two_parameters(modes)
-      @pointer = p1.zero? ? @pointer + 3 : p2
+      jump_if_true(modes)
     when 6
-      p1, p2 = operation_with_two_parameters(modes)
-      @pointer = p1.zero? ? p2 : @pointer + 3
+      jump_if_false(modes)
     when 7
-      p1, p2, out = operation_with_three_parameters(modes)
-      @numbers[out] = p1 < p2 ? 1 : 0
-      @pointer += 4
+      less_than(modes)
     when 8
-      p1, p2, out = operation_with_three_parameters(modes)
-      @numbers[out] = p1 == p2 ? 1 : 0
-      @pointer += 4
+      equals(modes)
+    when 9
+      modify_relative_offset(modes[0])
     when 99
       @halted = true
     end
@@ -70,24 +62,92 @@ class IntCode
     operation = @numbers[@pointer]
     str = operation.to_s.rjust(5, "0").chars
     opcode = str.last(2).join.to_i
-    modes = str[0..-3].map(&:to_i).map(&:zero?).reverse
-    [opcode, modes]
+    [opcode, str[0..-3].map(&:to_i).reverse]
   end
 
-  def operation_with_three_parameters(modes)
-    x = @numbers[@pointer + 1]
-    p1 = modes[0] ? @numbers[x] : x
-    y = @numbers[@pointer + 2]
-    p2 = modes[1] ? @numbers[y] : y
-    out = @numbers[@pointer + 3]
-    [p1, p2, out]
+  def add_opcode(modes)
+    result = get_params(modes).reduce(:+)
+    write_value(@numbers[@pointer + 3], modes[2], result)
+    @pointer += 4
   end
 
-  def operation_with_two_parameters(modes)
-    x = @numbers[@pointer + 1]
-    p1 = modes[0] ? @numbers[x] : x
-    y = @numbers[@pointer + 2]
-    p2 = modes[1] ? @numbers[y] : y
-    [p1, p2]
+  def multiply_opcode(modes)
+    result = get_params(modes).reduce(:*)
+    write_value(@numbers[@pointer + 3], modes[2], result)
+    @pointer += 4
+  end
+
+  def input_opcode(mode)
+    write_value(@numbers[@pointer + 1], mode, @inputs.shift)
+    @pointer += 2
+  end
+
+  def output_opcode(mode)
+    param = get_param(@pointer + 1, mode)
+    @pointer += 2
+    @output.append(param)
+  end
+
+  def jump_if_true(modes)
+    first, second = get_params(modes)
+    if first.zero?
+      @pointer += 3
+    else
+      @pointer = second
+    end
+  end
+
+  def jump_if_false(modes)
+    first, second = get_params(modes)
+    if first.zero?
+      @pointer = second
+    else
+      @pointer += 3
+    end
+  end
+
+  def modify_relative_offset(mode)
+    @relative += get_param(@pointer + 1, mode)
+    @pointer += 2
+  end
+
+  def less_than(modes)
+    first, second = get_params(modes)
+    result = first < second ? 1 : 0
+    write_value(@numbers[@pointer + 3], modes[2], result)
+    @pointer += 4
+  end
+
+  def equals(modes)
+    first, second = get_params(modes)
+    result = first == second ? 1 : 0
+    write_value(@numbers[@pointer + 3], modes[2], result)
+    @pointer += 4
+  end
+
+  def get_params(modes)
+    [get_param(@pointer + 1, modes[0]), get_param(@pointer + 2, modes[1])]
+  end
+
+  def get_param(pointer, mode)
+    if mode.zero?
+      @numbers[@numbers[pointer]]
+    elsif mode == 1
+      @numbers[pointer]
+    elsif mode == 2
+      @numbers[@relative + @numbers[pointer]]
+    else
+      raise "unknown mode"
+    end
+  end
+
+  def write_value(pointer, mode, value)
+    if mode.zero?
+      @numbers[pointer] = value
+    elsif mode == 2
+      @numbers[pointer + @relative] = value
+    else
+      raise "invalid write mode"
+    end
   end
 end
