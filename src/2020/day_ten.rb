@@ -2,8 +2,10 @@
 
 class DayTen2020
   def self.part_one(lines)
-    middle = (lines.sort.size - lines.max) / 2
-    (middle + lines.size) * (1 - middle)
+    max = lines.max
+    [0, *lines.sort, max + 3].each_cons(2).with_object([]) do |(x, y), acc|
+      acc << (y - x)
+    end.tally.values.reduce(&:*)
   end
 
   def self.part_two(lines)
