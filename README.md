@@ -95,7 +95,7 @@
 - [X] [Day 7](https://adventofcode.com/2020/day/7)
 - [X] [Day 8](https://adventofcode.com/2020/day/8)
 - [X] [Day 9](https://adventofcode.com/2020/day/9)
-- [ ] [Day 10](https://adventofcode.com/2020/day/10)
+- [X] [Day 10](https://adventofcode.com/2020/day/10)
 - [ ] [Day 11](https://adventofcode.com/2020/day/11)
 - [ ] [Day 12](https://adventofcode.com/2020/day/12)
 - [ ] [Day 13](https://adventofcode.com/2020/day/13)
